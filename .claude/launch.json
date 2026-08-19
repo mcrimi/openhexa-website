@@ -4,7 +4,7 @@
     {
       "name": "website-preview",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8931", "--directory", "Website redesign exploration"],
+      "runtimeArgs": ["-m", "http.server", "8931", "--directory", "."],
       "port": 8931
     }
   ]
