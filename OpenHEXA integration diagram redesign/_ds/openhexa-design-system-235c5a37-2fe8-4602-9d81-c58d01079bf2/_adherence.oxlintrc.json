@@ -1,0 +1,171 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": []
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Mulish))/i]",
+        "message": "Font not provided by the design system. Available: Mulish."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--oh-action-primary",
+      "--oh-action-primary-hover",
+      "--oh-action-secondary",
+      "--oh-bg-dark",
+      "--oh-bg-light",
+      "--oh-black",
+      "--oh-blue-600",
+      "--oh-container-max",
+      "--oh-content-max",
+      "--oh-coral-400",
+      "--oh-font-sans",
+      "--oh-glow-dark",
+      "--oh-gradient-brand",
+      "--oh-gray-100",
+      "--oh-gray-200",
+      "--oh-gray-50",
+      "--oh-gray-500",
+      "--oh-gutter",
+      "--oh-link",
+      "--oh-mint-300",
+      "--oh-navy-700",
+      "--oh-navy-800",
+      "--oh-navy-900",
+      "--oh-periwinkle-100",
+      "--oh-periwinkle-400",
+      "--oh-pink-400",
+      "--oh-pink-500",
+      "--oh-radius-lg",
+      "--oh-radius-md",
+      "--oh-radius-pill",
+      "--oh-radius-sm",
+      "--oh-radius-xl",
+      "--oh-space-1",
+      "--oh-space-12",
+      "--oh-space-16",
+      "--oh-space-2",
+      "--oh-space-24",
+      "--oh-space-3",
+      "--oh-space-4",
+      "--oh-space-40",
+      "--oh-space-6",
+      "--oh-space-8",
+      "--oh-surface-dark",
+      "--oh-text-13",
+      "--oh-text-14",
+      "--oh-text-16",
+      "--oh-text-20",
+      "--oh-text-24",
+      "--oh-text-28",
+      "--oh-text-32",
+      "--oh-text-40",
+      "--oh-text-48",
+      "--oh-text-56",
+      "--oh-text-muted",
+      "--oh-text-on-dark",
+      "--oh-text-on-light",
+      "--oh-white",
+      "--oh-yellow-400"
+    ],
+    "tokenKinds": {
+      "--oh-navy-900": "color",
+      "--oh-navy-800": "color",
+      "--oh-navy-700": "color",
+      "--oh-pink-500": "color",
+      "--oh-pink-400": "color",
+      "--oh-blue-600": "color",
+      "--oh-periwinkle-400": "color",
+      "--oh-periwinkle-100": "color",
+      "--oh-coral-400": "color",
+      "--oh-yellow-400": "color",
+      "--oh-mint-300": "color",
+      "--oh-white": "color",
+      "--oh-gray-50": "color",
+      "--oh-gray-100": "color",
+      "--oh-gray-200": "color",
+      "--oh-gray-500": "color",
+      "--oh-black": "color",
+      "--oh-bg-dark": "color",
+      "--oh-bg-light": "color",
+      "--oh-surface-dark": "color",
+      "--oh-text-on-light": "font",
+      "--oh-text-on-dark": "font",
+      "--oh-text-muted": "font",
+      "--oh-action-primary": "color",
+      "--oh-action-primary-hover": "color",
+      "--oh-action-secondary": "color",
+      "--oh-link": "color",
+      "--oh-gradient-brand": "other",
+      "--oh-font-sans": "font",
+      "--oh-text-13": "font",
+      "--oh-text-14": "font",
+      "--oh-text-16": "font",
+      "--oh-text-20": "font",
+      "--oh-text-24": "font",
+      "--oh-text-28": "font",
+      "--oh-text-32": "font",
+      "--oh-text-40": "font",
+      "--oh-text-48": "font",
+      "--oh-text-56": "font",
+      "--oh-space-1": "spacing",
+      "--oh-space-2": "spacing",
+      "--oh-space-3": "spacing",
+      "--oh-space-4": "spacing",
+      "--oh-space-6": "spacing",
+      "--oh-space-8": "spacing",
+      "--oh-space-12": "spacing",
+      "--oh-space-16": "spacing",
+      "--oh-space-24": "spacing",
+      "--oh-space-40": "spacing",
+      "--oh-radius-sm": "radius",
+      "--oh-radius-md": "radius",
+      "--oh-radius-lg": "radius",
+      "--oh-radius-xl": "radius",
+      "--oh-radius-pill": "radius",
+      "--oh-glow-dark": "shadow",
+      "--oh-container-max": "spacing",
+      "--oh-content-max": "spacing",
+      "--oh-gutter": "spacing"
+    },
+    "fontFamilies": [
+      "Mulish"
+    ]
+  }
+}

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/openhexa-design-system-02453b6c-3f95-4c8b-8a39-45ee5c42bdb6/colors_and_type.css">
+<link rel="icon" href="assets/favicon.png">
+<script src="_ds/openhexa-design-system-02453b6c-3f95-4c8b-8a39-45ee5c42bdb6/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: #fff; }
+  a { color: var(--blue-600); text-decoration: none; }
+  a:hover { color: var(--blue-700); }
+  ::selection { background: #ffd6e7; color: #111827; }
+  @keyframes ohIn1 { 0%,4%{opacity:0;transform:translateY(5px)} 10%,100%{opacity:1;transform:none} }
+  @keyframes ohIn2 { 0%,12%{opacity:0;transform:translateY(5px)} 18%,100%{opacity:1;transform:none} }
+  @keyframes ohIn3 { 0%,20%{opacity:0;transform:translateY(5px)} 26%,100%{opacity:1;transform:none} }
+  @keyframes ohIn4 { 0%,30%{opacity:0;transform:translateY(5px)} 36%,100%{opacity:1;transform:none} }
+  @keyframes ohIn5 { 0%,42%{opacity:0;transform:translateY(5px)} 48%,100%{opacity:1;transform:none} }
+  @keyframes ohIn6 { 0%,54%{opacity:0;transform:translateY(5px)} 60%,100%{opacity:1;transform:none} }
+  @keyframes ohIn7 { 0%,68%{opacity:0;transform:translateY(5px)} 74%,100%{opacity:1;transform:none} }
+  @keyframes ohIn8 { 0%,82%{opacity:0;transform:translateY(5px)} 88%,100%{opacity:1;transform:none} }
+  @keyframes ohProgress { 0%{width:0%} 74%,100%{width:100%} }
+  @keyframes ohBar { 0%,86%{transform:scaleY(0)} 97%,100%{transform:scaleY(1)} }
+  @keyframes ohOut { 0%,66%{opacity:1} 74%,100%{opacity:0} }
+  @keyframes ohSpin { to { transform: rotate(360deg) } }
+  @keyframes ohBlink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  @keyframes ohStage1 { 0%,4%{opacity:.4} 10%,100%{opacity:1} }
+  @keyframes ohStage2 { 0%,30%{opacity:.4} 36%,100%{opacity:1} }
+  @keyframes ohStage3 { 0%,68%{opacity:.4} 74%,100%{opacity:1} }
+</style>
+</helmet>
+
+<div style="font-family: var(--font-sans); font-feature-settings: 'cv11','ss01'; color: var(--gray-800); -webkit-font-smoothing: antialiased;">
+
+  <header style="position: sticky; top: 0; z-index: 60; background: #111827; border-bottom: 1px solid #1f2937;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; gap: 40px;">
+      <a href="#top" style="display: flex; align-items: center; flex: none;">
+        <img src="assets/logo-openhexa-white.svg" alt="OpenHEXA" style="height: 26px; width: auto; display: block;">
+      </a>
+      <nav style="display: flex; align-items: center; gap: 28px; flex: 1;">
+        <a href="#product" style="color: #e5e7eb; font-size: 14px; font-weight: 500;" style-hover="color: #ffffff">Product</a>
+        <a href="#solutions" style="color: #e5e7eb; font-size: 14px; font-weight: 500;" style-hover="color: #ffffff">Solutions</a>
+        <a href="#ai" style="color: #e5e7eb; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;" style-hover="color: #ffffff">AI<span style="width: 5px; height: 5px; border-radius: 9999px; background: var(--brand-pink); display: inline-block;"></span></a>
+        <a href="#opensource" style="color: #e5e7eb; font-size: 14px; font-weight: 500;" style-hover="color: #ffffff">Open source</a>
+        <a href="#pricing" style="color: #e5e7eb; font-size: 14px; font-weight: 500;" style-hover="color: #ffffff">Pricing</a>
+        <a href="#docs" style="color: #e5e7eb; font-size: 14px; font-weight: 500;" style-hover="color: #ffffff">Docs</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 16px; flex: none;">
+        <a href="https://github.com/BLSQ/openhexa/" style="display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 10px; border: 1px solid #374151; border-radius: 2px; color: #e5e7eb; font-size: 13px; font-weight: 500;" style-hover="background: #1f2937; color: #ffffff">
+          <img src="assets/social/github.svg" alt="" style="width: 15px; height: 15px; display: block;">
+          <span>{{ starCount }}</span>
+        </a>
+        <a href="#signin" style="color: #9ca3af; font-size: 14px; font-weight: 500;" style-hover="color: #ffffff">Sign in</a>
+        <a href="#signup" style="display: inline-flex; align-items: center; height: 34px; padding: 0 16px; background: var(--blue-600); color: #fff; font-size: 14px; font-weight: 600; border-radius: 2px; box-shadow: var(--shadow-xs);" style-hover="background: var(--blue-700); color: #ffffff">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" style="position: relative; background: #111827; padding: 96px 24px 0; overflow: hidden;">
+    <div aria-hidden="true" style="position: absolute; inset: 0; background-image: url('assets/hero-photo.png'); background-size: cover; background-position: left top; opacity: 0.85;"></div>
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,24,39,0.38) 0%, rgba(17,24,39,0.62) 34%, rgba(17,24,39,0.92) 70%, #111827 94%);"></div>
+    <div style="position: relative; max-width: 1240px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 860px;">
+        <p class="oh-eyebrow" style="display: inline-flex; align-items: center; gap: 9px; color: var(--brand-pink); margin: 0; font-size: 12px; letter-spacing: 0.08em; font-weight: 600;"><svg width="11" height="12" viewBox="0 0 100 108" style="flex: none;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#ff3e96"></path></svg>Open-source data platform</p>
+        <h1 style="margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -0.025em; font-weight: 800; color: #ffffff; text-wrap: pretty;">{{ hPre }}<span style="color: var(--brand-pink);">{{ hMark }}</span>{{ hPost }}</h1>
+        <p style="margin: 0; max-width: 660px; font-size: 20px; line-height: 1.55; color: #9ca3af; text-wrap: pretty;">{{ subhead }}</p>
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+          <a href="#signup" style="display: inline-flex; align-items: center; height: 48px; padding: 0 26px; background: var(--blue-600); color: #fff; font-size: 16px; font-weight: 600; border-radius: 2px; box-shadow: var(--shadow-sm);" style-hover="background: var(--blue-700); color: #ffffff">Start free</a>
+          <span style="font-size: 14px; color: #6b7280;">No sales call. Workspace ready in about two minutes.</span>
+        </div>
+      </div>
+
+      <div style="position: relative; margin-top: 56px;">
+      <svg aria-hidden="true" width="34" height="37" viewBox="0 0 100 108" style="position: absolute; left: -17px; top: 64px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#ff3e96"></path></svg>
+      <svg aria-hidden="true" width="20" height="22" viewBox="0 0 100 108" style="position: absolute; left: -8px; top: 110px; opacity: 0.6;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#ff3e96"></path></svg>
+      <div style="position: relative; display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid #1f2937; border-bottom: none; border-radius: 8px 8px 0 0; background: #0b1220; overflow: hidden; box-shadow: 0 40px 90px -24px rgba(0,0,0,0.75);">
+        <div style="display: flex; align-items: center; gap: 10px; padding: 0 16px; height: 40px; border-bottom: 1px solid #1f2937; background: #111827;">
+          <span style="width: 9px; height: 9px; border-radius: 9999px; background: #374151;"></span>
+          <span style="width: 9px; height: 9px; border-radius: 9999px; background: #374151;"></span>
+          <span style="width: 9px; height: 9px; border-radius: 9999px; background: #374151;"></span>
+          <span style="margin-left: 12px; font-family: var(--font-mono); font-size: 12px; color: #6b7280;">app.openhexa.org / demo-workspace</span>
+          <span style="margin-left: auto; display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: #9ca3af;">
+            <span style="width: 6px; height: 6px; border-radius: 9999px; background: var(--green-500); display: inline-block;"></span>live
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 216px 1fr; min-height: 452px;">
+          <div style="border-right: 1px solid #1f2937; background: #111827; padding: 16px 0;">
+            <div style="padding: 0 16px 14px; display: flex; align-items: center; gap: 9px;">
+              <span style="width: 24px; height: 24px; border-radius: 4px; background: #1f2937; display: inline-flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 11px; font-weight: 700;">DW</span>
+              <span style="font-size: 13px; color: #e5e7eb; font-weight: 500;">Demo workspace</span>
+            </div>
+            <div style="display: grid; gap: 2px;">
+              <div style="display: flex; align-items: center; gap: 10px; padding: 8px 16px; color: #9ca3af; font-size: 13px;">Home</div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 8px 16px; color: #9ca3af; font-size: 13px;">Connections</div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 8px 13px; color: #ffffff; font-size: 13px; background: #1f2937; border-left: 3px solid var(--brand-pink); font-weight: 500;">Pipelines</div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 8px 16px; color: #9ca3af; font-size: 13px;">Datasets</div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 8px 16px; color: #9ca3af; font-size: 13px;">Notebooks</div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 8px 16px; color: #9ca3af; font-size: 13px;">Apps</div>
+            </div>
+            <div style="margin-top: 24px; padding: 0 16px;">
+              <p style="margin: 0 0 10px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #4b5563; font-weight: 600;">Connected</p>
+              <div style="display: grid; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 9px;" style-hover="opacity: 1"><img src="assets/connectors/dhis2.svg" alt="" style="width: 16px; height: 16px; animation: ohIn1 6.5s ease-out 1 both;"><span style="font-size: 12px; color: #9ca3af; animation: ohIn1 6.5s ease-out 1 both;">DHIS2 instance</span></div>
+                <div style="display: flex; align-items: center; gap: 9px;"><img src="assets/connectors/odk.png" alt="" style="width: 16px; height: 16px; object-fit: contain; animation: ohIn2 6.5s ease-out 1 both;"><span style="font-size: 12px; color: #9ca3af; animation: ohIn2 6.5s ease-out 1 both;">ODK submissions</span></div>
+                <div style="display: flex; align-items: center; gap: 9px;"><img src="assets/connectors/postgres.png" alt="" style="width: 16px; height: 16px; object-fit: contain; animation: ohIn3 6.5s ease-out 1 both;"><span style="font-size: 12px; color: #9ca3af; animation: ohIn3 6.5s ease-out 1 both;">Warehouse</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 20px 22px; display: grid; gap: 18px; align-content: start;">
+            <div style="display: flex; align-items: baseline; gap: 12px;">
+              <h2 style="margin: 0; font-size: 15px; font-weight: 600; color: #ffffff;">monthly-indicators</h2>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: #6b7280;">v14</span>
+              <span style="margin-left: auto; position: relative; display: inline-flex; align-items: center; justify-content: flex-end; min-width: 96px; height: 16px;">
+                <span style="position: absolute; right: 0; display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: #9ca3af; animation: ohOut 6.5s ease-out 1 both;"><span style="width: 11px; height: 11px; border-radius: 9999px; border: 2px solid #374151; border-top-color: var(--blue-500); display: inline-block; animation: ohSpin 900ms linear infinite;"></span>running</span>
+                <span style="position: absolute; right: 0; display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--green-400); animation: ohIn7 6.5s ease-out 1 both;"><span style="width: 11px; height: 11px;">✓</span>succeeded</span>
+              </span>
+            </div>
+
+            <div style="display: grid; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #6b7280;">
+                <span style="animation: ohStage1 6.5s ease-out 1 both;">Extract</span>
+                <span>→</span>
+                <span style="animation: ohStage2 6.5s ease-out 1 both;">Transform</span>
+                <span>→</span>
+                <span style="animation: ohStage3 6.5s ease-out 1 both;">Publish</span>
+              </div>
+              <div style="height: 4px; border-radius: 9999px; background: #1f2937; overflow: hidden;">
+                <div style="height: 100%; background: var(--blue-500); animation: ohProgress 6.5s ease-out 1 both;"></div>
+              </div>
+            </div>
+
+            <div style="border: 1px solid #1f2937; border-radius: 6px; background: #111827; padding: 14px 16px; font-family: var(--font-mono); font-size: 12px; line-height: 1.85; color: #9ca3af; display: grid; gap: 2px;">
+              <div style="animation: ohIn4 6.5s ease-out 1 both;"><span style="color: #4b5563;">$</span> openhexa pipelines run monthly-indicators</div>
+              <div style="animation: ohIn5 6.5s ease-out 1 both;"><span style="color: var(--green-400);">✓</span> extracted 412 830 rows from 3 sources</div>
+              <div style="animation: ohIn6 6.5s ease-out 1 both;"><span style="color: var(--green-400);">✓</span> 2 quality checks passed · 1 flagged</div>
+              <div style="animation: ohIn7 6.5s ease-out 1 both;"><span style="color: var(--green-400);">✓</span> dataset <span style="color: #e5e7eb;">monthly_indicators_v14</span> published</div>
+              <div style="animation: ohIn8 6.5s ease-out 1 both;"><span style="color: var(--brand-pink);">→</span> app <span style="color: #e5e7eb;">program-review</span> refreshed <span style="animation: ohBlink 1s step-end infinite;">▍</span></div>
+            </div>
+
+            <div style="border: 1px solid #1f2937; border-radius: 6px; background: #111827; padding: 16px; animation: ohIn8 6.5s ease-out 1 both;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
+                <span style="font-size: 12px; font-weight: 600; color: #e5e7eb;">Reporting completeness by district</span>
+                <span style="font-size: 11px; color: #6b7280;">updated just now</span>
+              </div>
+              <div style="display: flex; align-items: flex-end; gap: 7px; height: 96px;">
+                <div style="flex: 1; height: 54%; background: var(--blue-600); border-radius: 2px 2px 0 0; transform-origin: bottom; animation: ohBar 6.5s ease-out 1 both;"></div>
+                <div style="flex: 1; height: 71%; background: var(--blue-600); border-radius: 2px 2px 0 0; transform-origin: bottom; animation: ohBar 6.5s ease-out 1 both; animation-delay: 60ms;"></div>
+                <div style="flex: 1; height: 44%; background: var(--blue-600); border-radius: 2px 2px 0 0; transform-origin: bottom; animation: ohBar 6.5s ease-out 1 both; animation-delay: 120ms;"></div>
+                <div style="flex: 1; height: 88%; background: var(--blue-600); border-radius: 2px 2px 0 0; transform-origin: bottom; animation: ohBar 6.5s ease-out 1 both; animation-delay: 180ms;"></div>
+                <div style="flex: 1; height: 63%; background: var(--blue-600); border-radius: 2px 2px 0 0; transform-origin: bottom; animation: ohBar 6.5s ease-out 1 both; animation-delay: 240ms;"></div>
+                <div style="flex: 1; height: 79%; background: var(--brand-pink); border-radius: 2px 2px 0 0; transform-origin: bottom; animation: ohBar 6.5s ease-out 1 both; animation-delay: 300ms;"></div>
+                <div style="flex: 1; height: 51%; background: var(--blue-600); border-radius: 2px 2px 0 0; transform-origin: bottom; animation: ohBar 6.5s ease-out 1 both; animation-delay: 360ms;"></div>
+                <div style="flex: 1; height: 68%; background: var(--blue-600); border-radius: 2px 2px 0 0; transform-origin: bottom; animation: ohBar 6.5s ease-out 1 both; animation-delay: 420ms;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #ffffff; border-bottom: 1px solid var(--gray-200); padding: 32px 24px;">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+      <p style="margin: 0; font-size: 13px; color: var(--gray-500); flex: none;">Used by programs at</p>
+      <div style="display: flex; align-items: center; gap: 44px; flex-wrap: wrap; filter: grayscale(1); opacity: 0.7;">
+        <img src="assets/logos/world-bank.png" alt="World Bank" style="height: 26px; width: auto;">
+        <img src="assets/logos/who.png" alt="WHO" style="height: 40px; width: auto;">
+        <img src="assets/logos/polio.png" alt="Global Polio Eradication Initiative" style="height: 26px; width: auto;">
+        <img src="assets/logos/pathways.svg" alt="Pathways" style="height: 20px; width: auto;">
+      </div>
+      <div style="display: flex; align-items: center; gap: 20px; flex: none;">
+        <a href="https://dhis2.org/technology-partners/" style="display: inline-flex; align-items: center; gap: 9px; font-size: 13px; color: var(--gray-600); font-weight: 500;" style-hover="color: var(--gray-900)">
+          <img src="assets/badges/dhis2-tech-partner.png" alt="" style="height: 34px; width: auto;">DHIS2 Technology Partner
+        </a>
+        <a href="https://www.digitalpublicgoods.net/r/openhexa" style="font-size: 13px; color: var(--gray-600); font-weight: 500; border-left: 1px solid var(--gray-200); padding-left: 20px;" style-hover="color: var(--gray-900)">Digital Public Good</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="solutions" style="background: #ffffff; padding: 96px 24px;">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <p class="oh-eyebrow" style="margin: 0 0 14px; color: var(--brand-pink); font-size: 12px; letter-spacing: 0.08em; font-weight: 600;">Who it is for</p>
+      <h2 style="margin: 0 0 16px; font-size: 38px; line-height: 1.12; letter-spacing: -0.022em; font-weight: 700; color: var(--gray-900); max-width: 700px;">Three ways in, depending on who you are</h2>
+      <p style="margin: 0 0 48px; font-size: 18px; color: var(--gray-600); max-width: 620px;">Each path starts you in a workspace already set up for the work you do.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <a href="#path-me" style="display: block; background: #ffffff; border: 1px solid var(--gray-200); border-radius: 6px; padding: 28px; color: inherit; transition: box-shadow var(--motion-slow) var(--ease-standard), border-color var(--motion-slow);" style-hover="box-shadow: var(--shadow-md); border-color: var(--gray-300); color: inherit">
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 6px; background: var(--blue-50); color: var(--blue-600); margin-bottom: 20px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+          </span>
+          <h3 style="margin: 0 0 10px; font-size: 19px; font-weight: 600; color: var(--gray-900);">Program and M&amp;E data leads</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Get a dashboard in front of your team without waiting on IT. Start from a template pipeline, point it at your sources, publish.</p>
+          <span style="font-size: 14px; font-weight: 600; color: var(--blue-600);">Start with a template →</span>
+        </a>
+        <a href="#path-ds" style="display: block; background: #ffffff; border: 1px solid var(--gray-200); border-radius: 6px; padding: 28px; color: inherit; transition: box-shadow var(--motion-slow) var(--ease-standard), border-color var(--motion-slow);" style-hover="box-shadow: var(--shadow-md); border-color: var(--gray-300); color: inherit">
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 6px; background: var(--indigo-50); color: var(--indigo-700); margin-bottom: 20px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg>
+          </span>
+          <h3 style="margin: 0 0 10px; font-size: 19px; font-weight: 600; color: var(--gray-900);">Data scientists and analysts</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: var(--gray-600);">A Python and R workspace with versioning, scheduling and access control already handled. Your notebook, your packages, no environment to build.</p>
+          <span style="font-size: 14px; font-weight: 600; color: var(--blue-600);">Open a notebook →</span>
+        </a>
+        <a href="#path-it" style="display: block; background: #ffffff; border: 1px solid var(--gray-200); border-radius: 6px; padding: 28px; color: inherit; transition: box-shadow var(--motion-slow) var(--ease-standard), border-color var(--motion-slow);" style-hover="box-shadow: var(--shadow-md); border-color: var(--gray-300); color: inherit">
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 6px; background: var(--gray-100); color: var(--gray-700); margin-bottom: 20px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 0 0-.12-1.03l-2.268-9.64a3.375 3.375 0 0 0-3.285-2.602H7.923a3.375 3.375 0 0 0-3.285 2.602l-2.268 9.64a4.5 4.5 0 0 0-.12 1.03v.228m19.5 0a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3m19.5 0a3 3 0 0 0-3-3H5.25a3 3 0 0 0-3 3m16.5-6.75h-15"/></svg>
+          </span>
+          <h3 style="margin: 0 0 10px; font-size: 19px; font-weight: 600; color: var(--gray-900);">IT and platform teams</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Self-host the whole stack, keep data in your own infrastructure, wire up role-based access. Open source, no vendor lock-in.</p>
+          <span style="font-size: 14px; font-weight: 600; color: var(--blue-600);">Read the self-host guide →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="product" style="background: var(--gray-50); border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); padding: 96px 24px;">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <p class="oh-eyebrow" style="margin: 0 0 14px; color: var(--brand-pink); font-size: 12px; letter-spacing: 0.08em; font-weight: 600;">The product</p>
+      <h2 style="margin: 0 0 64px; font-size: 38px; line-height: 1.12; letter-spacing: -0.022em; font-weight: 700; color: var(--gray-900); max-width: 720px;">One workspace, from the source system to the thing people open every morning</h2>
+
+      <div style="display: grid; grid-template-columns: 400px 1fr; gap: 64px; align-items: stretch;">
+        <div style="display: grid; gap: 20px; align-content: start;">
+          <div data-step="0" style="border-left: 2px solid; border-left-color: #ff3e96; padding: 18px 0 18px 24px; opacity: 1; transition: opacity 200ms var(--ease-standard), border-left-color 200ms;">
+            <p style="margin: 0 0 8px; font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);">01 / CONNECT</p>
+            <h3 style="margin: 0 0 8px; font-size: 21px; font-weight: 600; color: var(--gray-900);">Connections</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Standard adapters for the systems your programs already run on, plus custom connectors when the source is yours alone. Credentials stay in the workspace, not in someone's script.</p>
+          </div>
+          <div data-step="1" style="border-left: 2px solid; border-left-color: #e5e7eb; padding: 18px 0 18px 24px; opacity: 0.42; transition: opacity 200ms var(--ease-standard), border-left-color 200ms;">
+            <p style="margin: 0 0 8px; font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);">02 / BUILD</p>
+            <h3 style="margin: 0 0 8px; font-size: 21px; font-weight: 600; color: var(--gray-900);">Pipelines</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Write the transformation in Python or R, run it on a schedule, keep every version and every run. Quality checks fail loudly instead of quietly shipping a wrong number.</p>
+            <sc-if value="{{ aiWoven }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 12px 0 0; font-size: 14px; color: var(--gray-500);"><span style="color: var(--brand-pink); font-weight: 600;">With AI</span> — describe the pipeline you need and the assistant drafts the code, which you review like any other commit.</p>
+            </sc-if>
+          </div>
+          <div data-step="2" style="border-left: 2px solid; border-left-color: #e5e7eb; padding: 18px 0 18px 24px; opacity: 0.42; transition: opacity 200ms var(--ease-standard), border-left-color 200ms;">
+            <p style="margin: 0 0 8px; font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);">03 / GOVERN</p>
+            <h3 style="margin: 0 0 8px; font-size: 21px; font-weight: 600; color: var(--gray-900);">Datasets and notebooks</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Published datasets are versioned, documented and shareable outside your organization on your terms. Analysts explore them in a JupyterHub that is already wired to the workspace.</p>
+            <sc-if value="{{ aiWoven }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 12px 0 0; font-size: 14px; color: var(--gray-500);"><span style="color: var(--brand-pink); font-weight: 600;">With AI</span> — the MCP server exposes those datasets to your own coding agent, under the same permissions.</p>
+            </sc-if>
+          </div>
+          <div data-step="3" style="border-left: 2px solid; border-left-color: #e5e7eb; padding: 18px 0 18px 24px; opacity: 0.42; transition: opacity 200ms var(--ease-standard), border-left-color 200ms;">
+            <p style="margin: 0 0 8px; font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);">04 / PUBLISH</p>
+            <h3 style="margin: 0 0 8px; font-size: 21px; font-weight: 600; color: var(--gray-900);">Web apps and dashboards</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Ship a web app from the workspace, or plug Tableau, Power BI, Superset or Metabase into the same governed tables. Program teams get a URL, not an export.</p>
+            <sc-if value="{{ aiWoven }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 12px 0 0; font-size: 14px; color: var(--gray-500);"><span style="color: var(--brand-pink); font-weight: 600;">With AI</span> — the web app builder turns a described view into a working app you can edit by hand afterwards.</p>
+            </sc-if>
+          </div>
+        </div>
+
+        <div style="align-self: stretch; height: 100%;">
+        <div style="position: sticky; top: 104px;">
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--gray-200); border-radius: 8px; background: #ffffff; box-shadow: var(--shadow-lg); overflow: hidden;">
+            <div data-frame="0" style="position: absolute; inset: 0; opacity: 1; transition: opacity 250ms var(--ease-standard);">
+              <image-slot id="product-connections" shape="rect" placeholder="Screenshot: Connections page"></image-slot>
+            </div>
+            <div data-frame="1" style="position: absolute; inset: 0; opacity: 0; transition: opacity 250ms var(--ease-standard);">
+              <image-slot id="product-pipelines" shape="rect" placeholder="Screenshot: Pipeline builder / run"></image-slot>
+            </div>
+            <div data-frame="2" style="position: absolute; inset: 0; opacity: 0; transition: opacity 250ms var(--ease-standard);">
+              <image-slot id="product-datasets" shape="rect" placeholder="Screenshot: Dataset browser or notebook"></image-slot>
+            </div>
+            <div data-frame="3" style="position: absolute; inset: 0; opacity: 0; transition: opacity 250ms var(--ease-standard);">
+              <image-slot id="product-webapp" shape="rect" placeholder="Screenshot: Published web app"></image-slot>
+            </div>
+          </div>
+          <p style="margin: 14px 0 0; font-size: 13px; color: var(--gray-500);">Drop your own screenshots into the frame — one per step.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showAiSection }}" hint-placeholder-val="{{ true }}">
+  <section id="ai" style="background: #111827; padding: 96px 24px;">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
+        <div>
+          <p class="oh-eyebrow" style="margin: 0 0 14px; color: var(--brand-pink); font-size: 12px; letter-spacing: 0.08em; font-weight: 600;">AI in the workspace</p>
+          <h2 style="margin: 0 0 20px; font-size: 38px; line-height: 1.12; letter-spacing: -0.022em; font-weight: 700; color: #ffffff;">Not an AI platform. A data platform your AI tools can reach.</h2>
+          <p style="margin: 0 0 32px; font-size: 18px; line-height: 1.6; color: #9ca3af;">Three things shipped this year, all inside the same permissions model as everything else. No separate product, no add-on: every AI feature is included in the trial.</p>
+          <div style="display: grid; gap: 24px;">
+            <div style="display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start;">
+              <span style="width: 28px; height: 28px; border-radius: 6px; background: #1f2937; color: #e5e7eb; display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px;">01</span>
+              <div>
+                <h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 600; color: #ffffff;">MCP server</h3>
+                <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9ca3af;">Point Claude, Cursor or any MCP client at your workspace and it can query the datasets you already granted it. Read-only by default, scoped to the member's own permissions.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start;">
+              <span style="width: 28px; height: 28px; border-radius: 6px; background: #1f2937; color: #e5e7eb; display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px;">02</span>
+              <div>
+                <h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 600; color: #ffffff;">Pipeline assistant</h3>
+                <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9ca3af;">Describe the transformation, get a draft pipeline in Python. It lands as reviewable code in a version, not as a black box you have to trust.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start;">
+              <span style="width: 28px; height: 28px; border-radius: 6px; background: #1f2937; color: #e5e7eb; display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px;">03</span>
+              <div>
+                <h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 600; color: #ffffff;">Web app builder</h3>
+                <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9ca3af;">Turn a published dataset into a working app for program teams, then keep editing it by hand.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#ai-page" style="display: inline-block; margin-top: 32px; font-size: 15px; font-weight: 600; color: #ffffff; border-bottom: 1px solid #374151; padding-bottom: 2px;" style-hover="color: #ffffff; border-color: var(--brand-pink)">See what AI does in OpenHEXA →</a>
+        </div>
+
+        <div style="border: 1px solid #1f2937; border-radius: 8px; background: #0b1220; overflow: hidden;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #1f2937; background: #111827;">
+            <span style="font-size: 12px; color: #9ca3af; font-weight: 500;">Try it before you sign up</span>
+            <button type="button" onClick="{{ copyPrompt }}" style="height: 28px; padding: 0 12px; border: 1px solid #374151; background: transparent; color: #e5e7eb; font-family: var(--font-sans); font-size: 12px; font-weight: 500; border-radius: 2px; cursor: pointer;" style-hover="background: #1f2937">{{ copyLabel }}</button>
+          </div>
+          <pre style="margin: 0; padding: 18px 16px; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.9; color: #9ca3af; white-space: pre-wrap; word-break: break-word;"><span style="color: #4b5563;"># add the public OpenHEXA MCP server to your agent
+</span><span>claude mcp add openhexa --transport http \
+  https://app.openhexa.org/mcp/
+
+</span><span style="color: #4b5563;"># then ask it, in plain language
+</span><span style="color: #e5e7eb;">Using the OpenHEXA MCP server, list the datasets I can
+read and chart reporting completeness for the last
+six months.</span></pre>
+          <div style="padding: 14px 16px; border-top: 1px solid #1f2937; font-size: 13px; color: #6b7280;">Works against the demo workspace without an account. Your own data needs a token.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section id="stories" style="background: #ffffff; padding: 96px 24px;">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px;">
+        <p class="oh-eyebrow" style="margin: 0; color: var(--brand-pink); font-size: 12px; letter-spacing: 0.08em; font-weight: 600;">Use cases</p>
+        <span style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--gray-500); border: 1px solid var(--gray-300); border-radius: 9999px; padding: 3px 9px;">placeholder copy</span>
+      </div>
+      <h2 style="margin: 0 0 16px; font-size: 38px; line-height: 1.12; letter-spacing: -0.022em; font-weight: 700; color: var(--gray-900); max-width: 700px;">What teams replaced, and what it costs them now</h2>
+      <p style="margin: 0 0 48px; font-size: 18px; color: var(--gray-600); max-width: 620px;">Three programs, three starting points. Names, titles and figures below are placeholders to be replaced with the real interviews.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <article style="border: 1px solid var(--gray-200); border-radius: 6px; padding: 28px; display: grid; gap: 22px; align-content: start;">
+          <img src="assets/logos/world-bank.png" alt="World Bank" style="height: 22px; width: auto; filter: grayscale(1); opacity: 0.75;">
+          <p style="margin: 0; font-size: 17px; line-height: 1.55; color: var(--gray-900); font-weight: 500;">“We were rebuilding the same eleven-country spreadsheet every month. Now it runs itself and we spend the time on the analysis.”</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 18px 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); align-items: start;">
+            <div>
+              <p style="margin: 0 0 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; color: var(--gray-900);">6 days</p>
+              <p style="margin: 0; font-size: 12px; color: var(--gray-500);">analyst time per cycle, before</p>
+            </div>
+            <div>
+              <p style="margin: 0 0 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; color: var(--blue-600);">40 min</p>
+              <p style="margin: 0; font-size: 12px; color: var(--gray-500);">scheduled run, now</p>
+            </div>
+          </div>
+          <div>
+            <p style="margin: 0 0 2px; font-size: 14px; font-weight: 600; color: var(--gray-900);">Name Placeholder</p>
+            <p style="margin: 0; font-size: 13px; color: var(--gray-500);">Senior data analyst · replaced manual Excel consolidation</p>
+          </div>
+        </article>
+
+        <article style="border: 1px solid var(--gray-200); border-radius: 6px; padding: 28px; display: grid; gap: 22px; align-content: start;">
+          <img src="assets/logos/who.png" alt="WHO" style="height: 34px; width: auto; filter: grayscale(1); opacity: 0.75;">
+          <p style="margin: 0; font-size: 17px; line-height: 1.55; color: var(--gray-900); font-weight: 500;">“Program teams used to email us for extracts. They stopped, because the dashboard is never more than a day old.”</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 18px 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); align-items: start;">
+            <div>
+              <p style="margin: 0 0 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; color: var(--gray-900);">quarterly</p>
+              <p style="margin: 0; font-size: 12px; color: var(--gray-500);">refresh cadence, before</p>
+            </div>
+            <div>
+              <p style="margin: 0 0 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; color: var(--blue-600);">daily</p>
+              <p style="margin: 0; font-size: 12px; color: var(--gray-500);">refresh cadence, now</p>
+            </div>
+          </div>
+          <div>
+            <p style="margin: 0 0 2px; font-size: 14px; font-weight: 600; color: var(--gray-900);">Name Placeholder</p>
+            <p style="margin: 0; font-size: 13px; color: var(--gray-500);">M&amp;E lead · replaced three separate reporting tools</p>
+          </div>
+        </article>
+
+        <article style="border: 1px solid var(--gray-200); border-radius: 6px; padding: 28px; display: grid; gap: 22px; align-content: start;">
+          <img src="assets/logos/polio.png" alt="Global Polio Eradication Initiative" style="height: 24px; width: auto; filter: grayscale(1); opacity: 0.75;">
+          <p style="margin: 0; font-size: 17px; line-height: 1.55; color: var(--gray-900); font-weight: 500;">“Every analysis lived on someone's laptop. Reproducing a number took a fortnight and an apology.”</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 18px 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); align-items: start;">
+            <div>
+              <p style="margin: 0 0 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; color: var(--gray-900);">2 weeks</p>
+              <p style="margin: 0; font-size: 12px; color: var(--gray-500);">to reproduce a result, before</p>
+            </div>
+            <div>
+              <p style="margin: 0 0 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; color: var(--blue-600);">same day</p>
+              <p style="margin: 0; font-size: 12px; color: var(--gray-500);">to reproduce a result, now</p>
+            </div>
+          </div>
+          <div>
+            <p style="margin: 0 0 2px; font-size: 14px; font-weight: 600; color: var(--gray-900);">Name Placeholder</p>
+            <p style="margin: 0; font-size: 13px; color: var(--gray-500);">Epidemiologist · replaced ad-hoc R scripts on laptops</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="connectors" style="background: var(--gray-50); border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); padding: 72px 24px;">
+    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 340px 1fr; gap: 64px; align-items: center;">
+      <div>
+        <h2 style="margin: 0 0 10px; font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; color: var(--gray-900);">Connect what you already run</h2>
+        <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Standard adapters for common source systems and file formats, plus a custom connector interface for everything else.</p>
+        <a href="#integrations" style="font-size: 14px; font-weight: 600; color: var(--blue-600);">All integrations →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;">
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/dhis2.svg" alt="DHIS2" style="max-width: 44px; max-height: 32px;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/odk.png" alt="ODK" style="max-width: 44px; max-height: 32px; object-fit: contain;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/iaso.svg" alt="IASO" style="max-width: 44px; max-height: 32px;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/excel.svg" alt="Excel" style="max-width: 44px; max-height: 32px;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/postgres.png" alt="PostgreSQL" style="max-width: 40px; max-height: 32px; object-fit: contain;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/gcs.png" alt="Google Cloud Storage" style="max-width: 40px; max-height: 32px; object-fit: contain;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/openlmis.svg" alt="OpenLMIS" style="max-width: 44px; max-height: 32px;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/worldpop.png" alt="WorldPop" style="max-width: 52px; max-height: 32px; object-fit: contain;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/era5.png" alt="Copernicus ERA5" style="max-width: 44px; max-height: 32px; object-fit: contain;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/parquet.png" alt="Parquet" style="max-width: 40px; max-height: 32px; object-fit: contain;"></div>
+        <div style="height: 76px; background: #fff; border: 1px solid var(--gray-200); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: box-shadow 150ms;" style-hover="box-shadow: var(--shadow-sm)"><img src="assets/connectors/csv.png" alt="CSV" style="max-width: 36px; max-height: 32px; object-fit: contain;"></div>
+        <div style="height: 76px; background: #fff; border: 1px dashed var(--gray-300); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; color: var(--gray-500);">Custom</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="opensource" style="background: #ffffff; padding: 96px 24px;">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
+        <div>
+          <p class="oh-eyebrow" style="margin: 0 0 14px; color: var(--brand-pink); font-size: 12px; letter-spacing: 0.08em; font-weight: 600;">Open source</p>
+          <h2 style="margin: 0 0 20px; font-size: 38px; line-height: 1.12; letter-spacing: -0.022em; font-weight: 700; color: var(--gray-900);">Run it yourself, or let us run it</h2>
+          <p style="margin: 0 0 32px; font-size: 18px; line-height: 1.6; color: var(--gray-600);">The whole platform is open source and recognized as a Digital Public Good. Self-host it in your own infrastructure with no feature held back, or start on our cloud and move later.</p>
+          <div style="display: flex; align-items: center; gap: 32px; flex-wrap: wrap; padding: 20px 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); margin-bottom: 32px;">
+            <div><p style="margin: 0 0 2px; font-size: 22px; font-weight: 700; color: var(--gray-900);">{{ starCount }}</p><p style="margin: 0; font-size: 12px; color: var(--gray-500);">GitHub stars</p></div>
+            <div><p style="margin: 0 0 2px; font-size: 22px; font-weight: 700; color: var(--gray-900);">AGPL-3.0</p><p style="margin: 0; font-size: 12px; color: var(--gray-500);">licence</p></div>
+            <div><p style="margin: 0 0 2px; font-size: 22px; font-weight: 700; color: var(--gray-900);">Docker</p><p style="margin: 0; font-size: 12px; color: var(--gray-500);">single-command install</p></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://github.com/BLSQ/openhexa/" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; background: var(--gray-800); color: #fff; font-size: 15px; font-weight: 600; border-radius: 2px;" style-hover="background: var(--gray-900); color: #ffffff">
+              <img src="assets/social/github.svg" alt="" style="width: 17px; height: 17px;">Browse the repository
+            </a>
+            <a href="#community" style="display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border: 1px solid var(--gray-400); color: var(--gray-800); font-size: 15px; font-weight: 600; border-radius: 2px;" style-hover="background: var(--gray-50); color: var(--gray-900)">Join the community channel</a>
+          </div>
+        </div>
+        <div style="border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; background: #0b1220;">
+          <div style="padding: 12px 16px; border-bottom: 1px solid #1f2937; background: #111827; font-size: 12px; color: #9ca3af; font-weight: 500;">Self-host in three commands</div>
+          <pre style="margin: 0; padding: 20px 16px; font-family: var(--font-mono); font-size: 12.5px; line-height: 2; color: #9ca3af; white-space: pre-wrap;"><span>git clone https://github.com/BLSQ/openhexa.git
+cd openhexa
+docker compose up -d
+
+</span><span style="color: #4b5563;"># workspace on http://localhost:3000</span></pre>
+          <div style="padding: 14px 16px; border-top: 1px solid #1f2937; font-size: 13px; color: #6b7280;">Deployment guides for Kubernetes and single-VM setups are in the docs.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="signup" style="background: #111827; padding: 96px 24px;">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+      <div style="max-width: 620px;">
+        <h2 style="margin: 0 0 14px; font-size: 34px; line-height: 1.15; letter-spacing: -0.022em; font-weight: 700; color: #ffffff;">Create a workspace and run your first pipeline today</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #9ca3af;">The trial includes every feature, AI ones too. If you would rather see it driven first, book a walkthrough instead.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <a href="#signup-form" style="display: inline-flex; align-items: center; height: 48px; padding: 0 26px; background: var(--blue-600); color: #fff; font-size: 16px; font-weight: 600; border-radius: 2px;" style-hover="background: var(--blue-700); color: #ffffff">Start free</a>
+        <a href="#demo" style="font-size: 15px; font-weight: 600; color: #9ca3af;" style-hover="color: #ffffff">Book a walkthrough →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #0b1220; padding: 64px 24px 40px; color: #9ca3af;">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px;">
+        <div>
+          <img src="assets/logo-openhexa-white.svg" alt="OpenHEXA" style="height: 26px; width: auto; margin-bottom: 20px;">
+          <p style="margin: 0 0 20px; font-size: 14px; line-height: 1.6; color: #6b7280; max-width: 280px;">An open-source data platform, made by Bluesquare.</p>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <a href="https://github.com/BLSQ/openhexa/" style="opacity: 0.6;" style-hover="opacity: 1"><img src="assets/social/github.svg" alt="GitHub" style="width: 22px; height: 22px;"></a>
+            <a href="https://www.linkedin.com/company/bluesquarehub/" style="opacity: 0.6;" style-hover="opacity: 1"><img src="assets/social/linkedin.svg" alt="LinkedIn" style="width: 22px; height: 22px;"></a>
+            <a href="https://www.youtube.com/@bluesquare8434" style="opacity: 0.6;" style-hover="opacity: 1"><img src="assets/social/youtube.svg" alt="YouTube" style="width: 22px; height: 22px;"></a>
+            <a href="https://bsky.app/profile/bluesquarehub.bsky.social" style="opacity: 0.6;" style-hover="opacity: 1"><img src="assets/social/bluesky.svg" alt="Bluesky" style="width: 22px; height: 22px;"></a>
+          </div>
+        </div>
+        <div>
+          <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #4b5563; font-weight: 600;">Product</p>
+          <div style="display: grid; gap: 10px;">
+            <a href="#product" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">Overview</a>
+            <a href="#ai" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">AI</a>
+            <a href="#connectors" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">Integrations</a>
+            <a href="#pricing" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">Pricing</a>
+          </div>
+        </div>
+        <div>
+          <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #4b5563; font-weight: 600;">Solutions</p>
+          <div style="display: grid; gap: 10px;">
+            <a href="#path-me" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">Program and M&amp;E teams</a>
+            <a href="#path-ds" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">Data scientists</a>
+            <a href="#path-it" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">IT and platform teams</a>
+            <a href="#stories" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">Customer stories</a>
+          </div>
+        </div>
+        <div>
+          <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #4b5563; font-weight: 600;">Open source</p>
+          <div style="display: grid; gap: 10px;">
+            <a href="https://github.com/BLSQ/openhexa/" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">GitHub</a>
+            <a href="#opensource" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">Self-host</a>
+            <a href="#docs" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">Documentation</a>
+            <a href="#community" style="font-size: 14px; color: #9ca3af;" style-hover="color: #ffffff">Community</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #1f2937; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 13px; color: #4b5563;">
+        <p style="margin: 0;">© 2026 Bluesquare</p>
+        <div style="display: flex; gap: 24px;">
+          <a href="#legal" style="color: #4b5563; font-size: 13px;" style-hover="color: #9ca3af">Legal information</a>
+          <a href="#fr" style="color: #4b5563; font-size: 13px;" style-hover="color: #9ca3af">Français</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div style="position: fixed; right: 20px; bottom: 20px; z-index: 90; background: rgba(17,24,39,0.96); border: 1px solid #374151; border-radius: 6px; padding: 14px 16px; display: grid; gap: 12px; box-shadow: var(--shadow-xl);">
+    <p style="margin: 0; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #6b7280; font-weight: 600;">Review options</p>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 12px; color: #9ca3af; width: 84px;">Headline</span>
+      <div style="display: flex; gap: 6px;">
+        <button type="button" onClick="{{ pickA }}" style="width: 28px; height: 26px; border-radius: 2px; border: 1px solid #374151; background: {{ hA }}; color: #e5e7eb; font-family: var(--font-sans); font-size: 12px; font-weight: 600; cursor: pointer;">A</button>
+        <button type="button" onClick="{{ pickB }}" style="width: 28px; height: 26px; border-radius: 2px; border: 1px solid #374151; background: {{ hB }}; color: #e5e7eb; font-family: var(--font-sans); font-size: 12px; font-weight: 600; cursor: pointer;">B</button>
+        <button type="button" onClick="{{ pickC }}" style="width: 28px; height: 26px; border-radius: 2px; border: 1px solid #374151; background: {{ hC }}; color: #e5e7eb; font-family: var(--font-sans); font-size: 12px; font-weight: 600; cursor: pointer;">C</button>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 12px; color: #9ca3af; width: 84px;">AI emphasis</span>
+      <div style="display: flex; gap: 6px;">
+        <button type="button" onClick="{{ pickAi1 }}" style="height: 26px; padding: 0 9px; border-radius: 2px; border: 1px solid #374151; background: {{ aS }}; color: #e5e7eb; font-family: var(--font-sans); font-size: 11px; font-weight: 500; cursor: pointer;">Section</button>
+        <button type="button" onClick="{{ pickAi2 }}" style="height: 26px; padding: 0 9px; border-radius: 2px; border: 1px solid #374151; background: {{ aW }}; color: #e5e7eb; font-family: var(--font-sans); font-size: 11px; font-weight: 500; cursor: pointer;">Woven</button>
+        <button type="button" onClick="{{ pickAi3 }}" style="height: 26px; padding: 0 9px; border-radius: 2px; border: 1px solid #374151; background: {{ aB }}; color: #e5e7eb; font-family: var(--font-sans); font-size: 11px; font-weight: 500; cursor: pointer;">Both</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroHeadline&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;'A'|'B'|'C'&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;aiEmphasis&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;section&quot;,&quot;woven&quot;,&quot;both&quot;],&quot;default&quot;:&quot;both&quot;,&quot;tsType&quot;:&quot;'section'|'woven'|'both'&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;starCount&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;412&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+const HEADLINES = {
+  A: {
+    pre: "Turn scattered data into ",
+    mark: "pipelines, dashboards and apps",
+    post: " your teams actually use.",
+    subhead: "OpenHEXA connects the systems your programs already run on, transforms the data with your own Python and R, and publishes the result where the people who need it will find it."
+  },
+  B: {
+    pre: "From raw sources to a ",
+    mark: "working data product",
+    post: ", in one open-source workspace.",
+    subhead: "Connections, pipelines, datasets, notebooks and web apps in one place, with versioning and access control handled. Self-host it or start on our cloud."
+  },
+  C: {
+    pre: "Everything between your data sources and ",
+    mark: "the dashboard people open every morning",
+    post: ".",
+    subhead: "One governed workspace where analysts write the transformation, the platform runs it on a schedule, and program teams get a URL instead of another spreadsheet."
+  }
+};
+
+class Component extends DCLogic {
+  state = { h: null, ai: null, step: 0, copied: false };
+  _boot = this.startTracking();
+
+  startTracking() {
+    this._tracking = true;
+    cancelAnimationFrame(this._raf);
+    const tick = () => {
+      if (!this._tracking) return;
+      const nodes = document.querySelectorAll('[data-step]');
+      const frames = document.querySelectorAll('[data-frame]');
+      if (nodes.length) {
+        const mid = window.innerHeight * 0.42;
+        let best = 0, bestD = Infinity;
+        nodes.forEach((n, i) => {
+          const r = n.getBoundingClientRect();
+          const d = Math.abs(r.top + r.height / 2 - mid);
+          if (d < bestD) { bestD = d; best = i; }
+        });
+        if (best !== this._active) {
+          this._active = best;
+          nodes.forEach((n, i) => {
+            n.style.opacity = i === best ? '1' : '0.42';
+            n.style.borderLeftColor = i === best ? '#ff3e96' : '#e5e7eb';
+          });
+          frames.forEach((n, i) => { n.style.opacity = i === best ? '1' : '0'; });
+        }
+      }
+      this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+
+  componentDidMount() { this.startTracking(); }
+
+  componentWillUnmount() {
+    this._tracking = false;
+    cancelAnimationFrame(this._raf);
+  }
+
+  copy = () => {
+    const text = 'claude mcp add openhexa --transport http https://app.openhexa.org/mcp/';
+    if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
+    this.setState({ copied: true });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ copied: false }), 1600);
+  };
+
+  renderVals() {
+    const key = this.state.h ?? this.props.heroHeadline ?? 'A';
+    const ai = this.state.ai ?? this.props.aiEmphasis ?? 'both';
+    const h = HEADLINES[key] || HEADLINES.A;
+    const on = '#1f2937', off = 'transparent';
+    const vals = {
+      hPre: h.pre,
+      hMark: h.mark,
+      hPost: h.post,
+      subhead: h.subhead,
+      starCount: this.props.starCount ?? '412',
+      showAiSection: ai === 'section' || ai === 'both',
+      aiWoven: ai === 'woven' || ai === 'both',
+      copyPrompt: this.copy,
+      copyLabel: this.state.copied ? 'Copied' : 'Copy',
+      pickA: () => this.setState({ h: 'A' }),
+      pickB: () => this.setState({ h: 'B' }),
+      pickC: () => this.setState({ h: 'C' }),
+      pickAi1: () => this.setState({ ai: 'section' }),
+      pickAi2: () => this.setState({ ai: 'woven' }),
+      pickAi3: () => this.setState({ ai: 'both' }),
+      hA: key === 'A' ? on : off,
+      hB: key === 'B' ? on : off,
+      hC: key === 'C' ? on : off,
+      aS: ai === 'section' ? on : off,
+      aW: ai === 'woven' ? on : off,
+      aB: ai === 'both' ? on : off
+    };
+    return vals;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* OpenHEXA design tokens — rationalized from openhexa.com (2026-08-03) */
+:root {
+  /* Brand color */
+  --oh-navy-900: #192041;
+  --oh-navy-800: #222948;
+  --oh-navy-700: #353E66;
+  --oh-pink-500: #FF459A;
+  --oh-pink-400: #FF62AA;
+  --oh-blue-600: #4361EE;
+  --oh-periwinkle-400: #7990FF;
+  --oh-periwinkle-100: #CCD5FF;
+  --oh-coral-400: #FF7474;
+  --oh-yellow-400: #FFCD2D;
+  --oh-mint-300: #74FFCF;
+
+  /* Neutrals */
+  --oh-white: #FFFFFF;
+  --oh-gray-50: #F6F6F6;
+  --oh-gray-100: #F1F1F1;
+  --oh-gray-200: #E5E5E5;
+  --oh-gray-500: #9CA3AF;
+  --oh-black: #000000;
+
+  /* Semantic */
+  --oh-bg-dark: var(--oh-navy-900);
+  --oh-bg-light: var(--oh-white);
+  --oh-surface-dark: var(--oh-navy-800);
+  --oh-text-on-light: var(--oh-navy-900);
+  --oh-text-on-dark: var(--oh-white);
+  --oh-text-muted: var(--oh-gray-500);
+  --oh-action-primary: var(--oh-pink-500);
+  --oh-action-primary-hover: var(--oh-pink-400);
+  --oh-action-secondary: var(--oh-blue-600);
+  --oh-link: var(--oh-periwinkle-400);
+
+  /* Gradient (decorative borders only) */
+  --oh-gradient-brand: linear-gradient(90deg, #74FFCF, #EE469A);
+
+  /* Typography */
+  --oh-font-sans: 'Mulish', sans-serif;
+  --oh-text-13: 13px;
+  --oh-text-14: 14px;
+  --oh-text-16: 16px;
+  --oh-text-20: 20px;
+  --oh-text-24: 24px;
+  --oh-text-28: 28px;
+  --oh-text-32: 32px;
+  --oh-text-40: 40px;
+  --oh-text-48: 48px;
+  --oh-text-56: 56px;
+
+  /* Spacing (4px base) */
+  --oh-space-1: 4px;
+  --oh-space-2: 8px;
+  --oh-space-3: 12px;
+  --oh-space-4: 16px;
+  --oh-space-6: 24px;
+  --oh-space-8: 32px;
+  --oh-space-12: 48px;
+  --oh-space-16: 64px;
+  --oh-space-24: 96px;
+  --oh-space-40: 160px;
+
+  /* Shape */
+  --oh-radius-sm: 6px;
+  --oh-radius-md: 8px;
+  --oh-radius-lg: 16px;
+  --oh-radius-xl: 24px;
+  --oh-radius-pill: 9999px;
+
+  /* Elevation (the only shadow in the system) */
+  --oh-glow-dark: 0 0 16px 0 rgba(255, 255, 255, 0.08);
+
+  /* Layout */
+  --oh-container-max: 1920px;
+  --oh-content-max: 1200px;
+  --oh-gutter: 24px;
+}

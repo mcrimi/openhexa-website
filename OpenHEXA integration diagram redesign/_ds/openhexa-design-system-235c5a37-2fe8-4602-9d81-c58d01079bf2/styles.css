@@ -1,0 +1,103 @@
+/* OpenHEXA brand styles — tokens, fonts, and core class idiom.
+   Extracted from openhexa.com theme `bluesquare2025`, rationalized. */
+@import url("tokens/tokens.css");
+
+/* Mulish, self-hosted (latin) */
+@font-face { font-family: 'Mulish'; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/mulish-v17-latin-regular.woff2") format("woff2"); }
+@font-face { font-family: 'Mulish'; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/mulish-v17-latin-500.woff2") format("woff2"); }
+@font-face { font-family: 'Mulish'; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/mulish-v17-latin-600.woff2") format("woff2"); }
+@font-face { font-family: 'Mulish'; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/mulish-v17-latin-700.woff2") format("woff2"); }
+@font-face { font-family: 'Mulish'; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/mulish-v17-latin-800.woff2") format("woff2"); }
+
+/* Base */
+body {
+  font-family: var(--oh-font-sans);
+  font-size: var(--oh-text-16);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--oh-text-on-light);
+  background: var(--oh-bg-light);
+  margin: 0;
+}
+
+h1, .oh-display { font-size: var(--oh-text-48); font-weight: 800; line-height: 1.25; }
+h2 { font-size: var(--oh-text-32); font-weight: 800; line-height: 1.25; }
+h3 { font-size: var(--oh-text-28); font-weight: 700; line-height: 1.25; }
+h4 { font-size: var(--oh-text-20); font-weight: 800; line-height: 1.4; }
+.oh-lead { font-size: var(--oh-text-20); line-height: 1.5; }
+.oh-small { font-size: var(--oh-text-14); }
+.oh-eyebrow {
+  font-size: var(--oh-text-13);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--oh-link);
+}
+mark.oh-highlight { background: transparent; color: var(--oh-pink-400); }
+a { color: var(--oh-link); }
+
+/* Sections */
+.oh-section { padding: var(--oh-space-24) var(--oh-gutter); }
+.oh-section--hero { padding: var(--oh-space-40) var(--oh-gutter); }
+.oh-section--dark { background: var(--oh-bg-dark); color: var(--oh-text-on-dark); }
+.oh-section--dark .oh-muted, .oh-section--dark .oh-lead { opacity: 0.8; }
+.oh-section--subtle { background: var(--oh-gray-50); }
+
+/* Buttons — all pills */
+.oh-btn {
+  display: inline-block;
+  border: 0;
+  border-radius: var(--oh-radius-pill);
+  padding: var(--oh-space-2) var(--oh-space-6);
+  font-family: var(--oh-font-sans);
+  font-size: var(--oh-text-16);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--oh-white);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.oh-btn--lg { padding: var(--oh-space-3) var(--oh-space-8); }
+.oh-btn--primary { background: var(--oh-action-primary); }
+.oh-btn--primary:hover { background: var(--oh-action-primary-hover); }
+.oh-btn--secondary { background: var(--oh-action-secondary); }
+.oh-btn--secondary:hover { opacity: 0.8; }
+.oh-btn--outline { background: transparent; border: 1px solid var(--oh-white); }
+.oh-btn--outline:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* Cards */
+.oh-card {
+  border-radius: var(--oh-radius-lg);
+  padding: var(--oh-space-6);
+  background: var(--oh-white);
+}
+.oh-card--dark {
+  background: var(--oh-surface-dark);
+  color: var(--oh-text-on-dark);
+  border: 1px solid var(--oh-navy-700);
+  box-shadow: var(--oh-glow-dark);
+}
+
+/* Inputs */
+.oh-input {
+  background: var(--oh-gray-100);
+  border: 0;
+  border-radius: var(--oh-radius-sm);
+  padding: 10px var(--oh-space-6);
+  font-family: var(--oh-font-sans);
+  font-size: var(--oh-text-16);
+  width: 100%;
+  box-sizing: border-box;
+}
+.oh-input:focus { outline: 2px solid var(--oh-link); }
+
+/* Form panel (lead-capture style) */
+.oh-form-panel {
+  background: var(--oh-coral-400);
+  border-radius: var(--oh-radius-lg);
+  padding: var(--oh-space-8);
+  color: var(--oh-white);
+}
+.oh-form-panel .oh-input { background: var(--oh-white); }
+.oh-form-panel .oh-btn--submit { background: var(--oh-navy-900); width: 100%; }

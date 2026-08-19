@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/openhexa-design-system-02453b6c-3f95-4c8b-8a39-45ee5c42bdb6/colors_and_type.css">
+<script src="_ds/openhexa-design-system-02453b6c-3f95-4c8b-8a39-45ee5c42bdb6/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: #fff; }
+  a { color: var(--blue-600); text-decoration: none; }
+  a:hover { color: var(--blue-700); }
+  ::selection { background: #74ffcf; color: #192041; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary { list-style: none; cursor: pointer; }
+  @keyframes ohRise { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+  @keyframes ohGrow { from { transform: scaleY(0) } to { transform: scaleY(1) } }
+  @keyframes ohDash { from { stroke-dashoffset: 1200 } to { stroke-dashoffset: 0 } }
+  @keyframes ohPulse { 0%,100% { opacity: 1 } 50% { opacity: 0.35 } }
+  @keyframes ohSpin { to { transform: rotate(360deg) } }
+  @keyframes ohT0 { 0%,2%{opacity:0;transform:translateY(6px)} 7%,96%{opacity:1;transform:none} 100%{opacity:0;transform:translateY(6px)} }
+  @keyframes ohT1 { 0%,11%{opacity:0;transform:translateY(6px)} 16%,96%{opacity:1;transform:none} 100%{opacity:0;transform:translateY(6px)} }
+  @keyframes ohT2 { 0%,27%{opacity:0;transform:translateY(6px)} 32%,96%{opacity:1;transform:none} 100%{opacity:0;transform:translateY(6px)} }
+  @keyframes ohT3 { 0%,43%{opacity:0;transform:translateY(6px)} 48%,96%{opacity:1;transform:none} 100%{opacity:0;transform:translateY(6px)} }
+  @keyframes ohT4 { 0%,64%{opacity:0;transform:translateY(6px)} 70%,96%{opacity:1;transform:none} 100%{opacity:0;transform:translateY(6px)} }
+  @keyframes ohS1 { 0%,11%{opacity:0} 16%,21%{opacity:1} 24%,100%{opacity:0} }
+  @keyframes ohS2 { 0%,27%{opacity:0} 32%,37%{opacity:1} 40%,100%{opacity:0} }
+  @keyframes ohS3 { 0%,43%{opacity:0} 48%,57%{opacity:1} 60%,100%{opacity:0} }
+  @keyframes ohC1 { 0%,23%{opacity:0} 25%,96%{opacity:1} 100%{opacity:0} }
+  @keyframes ohC2 { 0%,39%{opacity:0} 41%,96%{opacity:1} 100%{opacity:0} }
+  @keyframes ohC3 { 0%,59%{opacity:0} 61%,96%{opacity:1} 100%{opacity:0} }
+  @keyframes ohR1 { 0%,24%{opacity:0} 27%,96%{opacity:1} 100%{opacity:0} }
+  @keyframes ohR2 { 0%,40%{opacity:0} 43%,96%{opacity:1} 100%{opacity:0} }
+  @keyframes ohR3 { 0%,60%{opacity:0} 63%,96%{opacity:1} 100%{opacity:0} }
+  @keyframes ohFloat { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-18px) } }
+  @keyframes ohFloatSlow { 0%,100% { transform: translateY(0) rotate(0deg) } 50% { transform: translateY(14px) rotate(4deg) } }
+  @keyframes ohBlink { 0%,49% { opacity: 1 } 50%,100% { opacity: 0 } }
+  /* hero diagram (namespaced dg* to avoid colliding with the oh* set above) */
+@keyframes dgFlow { from { offset-distance: 0%; opacity: 0 } 8% { opacity: 1 } 88% { opacity: 1 } to { offset-distance: 100%; opacity: 0 } }
+@keyframes dgDash { to { stroke-dashoffset: -240 } }
+@keyframes dgRing { 0% { transform: translate(-50%,-50%) scale(.72); opacity: .55 } 100% { transform: translate(-50%,-50%) scale(1.9); opacity: 0 } }
+@keyframes dgBreathe { 0%,100% { opacity: .45; transform: translate(-50%,-50%) scale(1) } 50% { opacity: .8; transform: translate(-50%,-50%) scale(1.08) } }
+@keyframes dgCore { 0%,100% { transform: scale(1) } 50% { transform: scale(1.045) } }
+@keyframes dgTile { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
+@keyframes dgRise { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: none } }
+@keyframes dgRipple { from { opacity: .9; transform: translate(-50%,-50%) scale(.2) } to { opacity: 0; transform: translate(-50%,-50%) scale(2.4) } }
+@keyframes dgRipple2 { from { opacity: .9; transform: translate(-50%,-50%) scale(.2) } to { opacity: 0; transform: translate(-50%,-50%) scale(2.4) } }
+@keyframes dgArrowDraw { 0%,100% { stroke-dashoffset: 0; opacity: .9 } 50% { stroke-dashoffset: -18; opacity: 1 } }
+@keyframes dgBlink { 0%,45% { opacity: 1 } 50%,95% { opacity: .15 } }
+</style>
+</helmet>
+
+<div style="font-family: var(--font-sans); font-feature-settings: 'cv11','ss01'; color: var(--gray-800); -webkit-font-smoothing: antialiased; overflow-x: hidden;">
+
+  <header style="position: sticky; top: 0; z-index: 60; background: #192041; border-bottom: 1px solid #353e66;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 10px 24px; min-height: 68px; display: flex; align-items: center; flex-wrap: wrap; gap: 12px 32px;">
+      <a href="#top" style="display: flex; align-items: center; flex: none;">
+        <img src="assets/logo-openhexa-white.svg" alt="OpenHEXA" style="height: 27px; width: auto; display: block;">
+      </a>
+      <nav style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px 22px; flex: 1 1 380px; min-width: 0;">
+        <a href="#product" style="color: #e5e7eb; font-size: 14px; font-weight: 500; white-space: nowrap;" style-hover="color: #74ffcf">Product</a>
+        <div onMouseEnter="{{ openSolutions }}" onMouseLeave="{{ closeSolutions }}" style="position: relative; display: flex; align-items: center;">
+          <button type="button" onClick="{{ toggleSolutions }}" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; border: none; background: transparent; font-family: var(--font-sans); color: {{ solColor }}; font-size: 14px; font-weight: 500; white-space: nowrap; cursor: pointer;">Solutions<svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="transform: {{ solArrow }}; transition: transform 120ms ease;"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          <sc-if value="{{ solutionsOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; top: 100%; left: -14px; padding-top: 12px; z-index: 80;">
+              <div style="min-width: 300px; background: #ffffff; border: 1px solid var(--gray-200); border-radius: 10px; box-shadow: var(--shadow-lg); padding: 8px;">
+                <a href="https://www.openhexa.com/integrations/what-you-can-do-withopenhexa-dhis2/" style="display: grid; gap: 4px; padding: 12px 14px; border-radius: 8px; color: inherit;" style-hover="background: var(--gray-50); color: inherit">
+                  <span style="font-size: 14px; font-weight: 600; color: var(--gray-900);">OpenHEXA and DHIS2</span>
+                  <span style="font-size: 13px; line-height: 1.5; color: var(--gray-600);">What you can do when your DHIS2 instance is connected.</span>
+                </a>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <a href="#ai" style="color: #e5e7eb; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 7px; white-space: nowrap;" style-hover="color: #74ffcf">AI<span style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #ff459a; color: #192041; border-radius: 9999px; padding: 2px 7px;">new</span></a>
+        <a href="https://github.com/BLSQ/openhexa/" style="color: #e5e7eb; font-size: 14px; font-weight: 500; white-space: nowrap;" style-hover="color: #74ffcf">Open source</a>
+        <a href="#pricing" style="color: #e5e7eb; font-size: 14px; font-weight: 500; white-space: nowrap;" style-hover="color: #74ffcf">Pricing</a>
+        <a href="#docs" style="color: #e5e7eb; font-size: 14px; font-weight: 500; white-space: nowrap;" style-hover="color: #74ffcf">Docs</a>
+        <a href="https://www.openhexa.com/blog/" style="color: #e5e7eb; font-size: 14px; font-weight: 500; white-space: nowrap;" style-hover="color: #74ffcf">Blog</a>
+        <a href="https://www.openhexa.com/contact/" style="color: #e5e7eb; font-size: 14px; font-weight: 500; white-space: nowrap;" style-hover="color: #74ffcf">Contact</a>
+      </nav>
+      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; flex: 0 1 auto; min-width: 0; margin-left: auto;">
+        
+        <a href="https://www.openhexa.com/fr/" style="display: inline-flex; align-items: center; justify-content: center; height: 34px; min-width: 46px; padding: 0 12px; border: 1px solid #353e66; border-radius: 9999px; color: #e5e7eb; font-size: 13px; font-weight: 600; letter-spacing: 0.02em;" style-hover="border-color: #74ffcf; color: #ffffff">FR</a>
+        <a href="https://api.whatsapp.com/send?phone=32496825230" aria-label="Contact us on WhatsApp" title="Contact us on WhatsApp" style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; flex: none;" style-hover="opacity: 0.85">
+          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#25d366"></circle><path fill="#ffffff" d="M22.2 18.9c-.3-.15-1.85-.91-2.14-1.01-.28-.11-.49-.16-.7.16-.2.31-.81.94-1.02 1.15-.2.2-.39.23-.7.08-.32-.16-1.34-.5-2.55-1.58-.94-.84-1.57-1.88-1.76-2.2-.18-.31-.02-.49.14-.65.15-.16.57-.63.75-.86.18-.23.06-.44-.05-.65-.11-.21-.7-1.7-.97-2.33-.25-.61-.51-.52-.7-.52h-.6c-.21 0-.55.08-.83.39-.28.31-1.09 1.07-1.09 2.6 0 1.53 1.11 3.01 1.27 3.22.16.21 2.16 3.44 5.3 4.69 3.13 1.25 3.13.83 3.7.78.57-.05 1.85-.76 2.11-1.48.26-.73.26-1.35.18-1.48-.08-.13-.29-.2-.6-.36Z"></path><path fill="#ffffff" d="M16.04 6.5C10.75 6.5 6.46 10.79 6.46 16.07c0 1.69.44 3.34 1.28 4.8L6.3 26.2l5.5-1.44c1.4.76 2.98 1.17 4.58 1.17h.01c5.28 0 9.57-4.29 9.57-9.58 0-5.28-4.63-9.85-9.92-9.85Zm0 17.44h-.01c-1.44 0-2.85-.39-4.08-1.12l-.29-.17-3.03.79.81-2.96-.19-.3a7.89 7.89 0 0 1-1.21-4.21c0-4.39 3.58-7.96 7.97-7.96 2.13 0 4.13.83 5.63 2.34a7.9 7.9 0 0 1 2.33 5.63c0 4.39-3.57 7.96-7.93 7.96Z"></path></svg>
+        </a>
+        <a href="#signin" style="color: #9ca3af; font-size: 14px; font-weight: 500;" style-hover="color: #ffffff">Sign in</a>
+        <a href="#signup" style="display: inline-flex; align-items: center; height: 38px; padding: 0 20px; background: #ff459a; color: #192041; font-size: 14px; font-weight: 700; border-radius: 9999px;" style-hover="background: #ff62aa; color: #192041">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <div style="position: relative; background: #192041; overflow: hidden;">
+    <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; background-image: url(assets/diagram/pattern-tile.png); background-size: 355px; opacity: 0.5; pointer-events: none;"></div>
+
+  <section id="top" style="position: relative; z-index: 1; padding: 104px 24px 56px;">
+    <svg aria-hidden="true" width="760" height="800" viewBox="0 0 100 108" style="position: absolute; left: 50%; top: -180px; opacity: 0.07; animation: ohFloat 16s ease-in-out infinite;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="none" stroke="#74ffcf" stroke-width="0.6"></path></svg>
+    <svg aria-hidden="true" width="520" height="560" viewBox="0 0 100 108" style="position: absolute; left: -140px; top: 120px; opacity: 0.06; animation: ohFloatSlow 22s ease-in-out infinite;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="none" stroke="#ff459a" stroke-width="0.8"></path></svg>
+
+    <div aria-hidden="true" style="position: absolute; left: -180px; top: -120px; width: 620px; height: 620px; border-radius: 9999px; background: radial-gradient(circle, rgba(255,69,154,0.16) 0%, rgba(255,69,154,0) 70%); pointer-events: none;"></div>
+    <div aria-hidden="true" style="position: absolute; right: -140px; bottom: -220px; width: 560px; height: 560px; border-radius: 9999px; background: radial-gradient(circle, rgba(116,255,207,0.12) 0%, rgba(116,255,207,0) 70%); pointer-events: none;"></div>
+
+    <div style="position: relative; max-width: 1280px; margin: 0 auto;">
+      <div style="display: grid; gap: 26px; max-width: 900px;">
+        <h1 style="margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 800; color: #ffffff; text-wrap: pretty;">{{ hPre }}<span style="color: #ff459a;">{{ hMark }}</span>{{ hPost }}</h1>
+        <p style="margin: 0; max-width: 680px; font-size: 20px; line-height: 1.55; color: #ccd5ff; text-wrap: pretty; font-family: 20">{{ subhead }}</p>
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+          <a href="#signup" style="display: inline-flex; align-items: center; height: 52px; padding: 0 30px; background: #ff459a; color: #192041; font-size: 16px; font-weight: 700; border-radius: 9999px;" style-hover="background: #ff62aa; color: #192041">Start free</a>
+          <a href="#docs" style="display: inline-flex; align-items: center; height: 52px; padding: 0 26px; border: 1px solid #353e66; color: #ffffff; font-size: 16px; font-weight: 600; border-radius: 9999px;" style-hover="border-color: #74ffcf; color: #ffffff">Read the docs</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="position: relative; z-index: 1; padding: 0 24px 96px;">
+    <div id="hero-diagram" style="position: relative; max-width: 1280px; margin: 0 auto;">
+
+      <div aria-hidden="true" style="position: absolute; z-index: 0; left: {{ dgGlowLeft }}; top: {{ dgGlowTop }}; width: {{ dgGlowSize }}; height: {{ dgGlowSize }}; border-radius: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(255,69,154,.26) 0%, rgba(121,144,255,.10) 42%, rgba(25,32,65,0) 68%); animation: dgBreathe 7s ease-in-out infinite; pointer-events: none; display: {{ dgShow }};"></div>
+
+      <div style="position: relative; z-index: 1; display: {{ dgShow }}; width: 100%; height: {{ dgH }}; overflow: hidden;">
+        <div style="{{ dgVars }}">
+        <div style="position: relative; width: 1280px; height: 690px; overflow: hidden; font-family: var(--font-sans); transform: scale({{ dgS }}); transform-origin: top left;">
+
+
+          <svg width="1280" height="690" viewBox="0 0 1280 690" fill="none" style="position: absolute; inset: 0">
+            <g stroke="#7990FF" strokeWidth="1.5" strokeLinecap="round" opacity=".38">
+              <path d="M44,99 C140,99 200,240 245,338"></path>
+              <path d="M118,154 C176,154 214,270 245,341"></path>
+              <path d="M44,209 C140,209 205,300 245,343"></path>
+              <path d="M118,264 C176,264 214,320 245,345"></path>
+              <path d="M44,319 C140,319 205,340 245,346"></path>
+              <path d="M118,374 C176,374 214,362 245,348"></path>
+              <path d="M44,429 C140,429 205,390 245,350"></path>
+              <path d="M118,484 C176,484 214,420 245,352"></path>
+              <path d="M44,539 C140,539 200,450 245,354"></path>
+              <path d="M118,594 C176,594 216,440 245,353"></path>
+              <path d="M150,659 C200,650 226,512 245,357"></path>
+            </g>
+            <g stroke="var(--oh-acc, #FF459A)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="6 14" opacity=".85" style="animation: dgDash calc(var(--oh-dur, 3.4s) * 2) linear infinite">
+              <path d="M44,99 C140,99 200,240 245,338"></path>
+              <path d="M118,154 C176,154 214,270 245,341"></path>
+              <path d="M44,209 C140,209 205,300 245,343"></path>
+              <path d="M118,264 C176,264 214,320 245,345"></path>
+              <path d="M44,319 C140,319 205,340 245,346"></path>
+              <path d="M118,374 C176,374 214,362 245,348"></path>
+              <path d="M44,429 C140,429 205,390 245,350"></path>
+              <path d="M118,484 C176,484 214,420 245,352"></path>
+              <path d="M44,539 C140,539 200,450 245,354"></path>
+              <path d="M118,594 C176,594 216,440 245,353"></path>
+              <path d="M150,659 C200,650 226,512 245,357"></path>
+            </g>
+          </svg>
+
+          <div style="position: absolute; inset: 0; pointer-events: none">
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #FF62AA; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M44,99 C140,99 200,240 245,338'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -0.2s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #FF62AA; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M118,154 C176,154 214,270 245,341'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -0.9s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #74FFCF; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M44,209 C140,209 205,300 245,343'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -1.5s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #FF62AA; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M118,264 C176,264 214,320 245,345'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -2.1s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #FF62AA; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M44,319 C140,319 205,340 245,346'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -0.5s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #7990FF; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M118,374 C176,374 214,362 245,348'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -2.7s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #FF62AA; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M44,429 C140,429 205,390 245,350'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -1.2s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #74FFCF; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M118,484 C176,484 214,420 245,352'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -3s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #FF62AA; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M44,539 C140,539 200,450 245,354'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -1.8s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #74FFCF; box-shadow: 0 0 12px 3px rgba(116,255,207,.6); offset-path: path('M118,594 C176,594 216,440 245,353'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -3.6s"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 10px; offset-anchor: 50% 50%; border-radius: 50%; background: #FF62AA; box-shadow: 0 0 12px 3px rgba(255,98,170,.6); offset-path: path('M150,659 C200,650 226,512 245,357'); animation: dgFlow var(--oh-dur, 3.4s) linear infinite; animation-delay: -2.4s"></div>
+          </div>
+
+          <div style="position: absolute; left: 92px; top: 565px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -2.1s">
+            <img src="assets/diagram/src-fhir.png" alt="FHIR" style="width: 24px; height: 32px; object-fit: contain">
+          </div>
+
+          <div style="position: absolute; left: 18px; top: 645px; display: flex; align-items: center; gap: 10px; padding: 9px 22px 9px 16px; border-radius: 9999px; background: #fff; color: var(--oh-navy-900, #192041); font-size: 15px; font-weight: 800; box-shadow: 0 0 28px 0 rgba(255,69,154,.5); animation: dgTile 5s ease-in-out infinite">
+            <span style="width: 16px; height: 18px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: linear-gradient(135deg, #74FFCF, #EE469A); display: block"></span>
+            Connect anything!
+          </div>
+
+  
+
+          <div style="position: absolute; left: 18px; top: 70px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -0.2s">
+            <img src="assets/diagram/src-9.svg" alt="DHIS2" style="width: 30px; height: 30px; object-fit: contain">
+          </div>
+          <div style="position: absolute; left: 92px; top: 125px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -0.7s">
+            <img src="assets/diagram/src-1.png" alt="WorldPop" style="width: 34px; height: 30px; object-fit: contain">
+          </div>
+          <div style="position: absolute; left: 18px; top: 180px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -1.1s">
+            <img src="assets/diagram/src-2.svg" alt="Excel" style="width: 30px; height: 30px; object-fit: contain">
+          </div>
+          <div style="position: absolute; left: 92px; top: 235px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -1.9s">
+            <img src="assets/diagram/src-3.png" alt="PostgreSQL" style="width: 30px; height: 30px; object-fit: contain">
+          </div>
+          <div style="position: absolute; left: 18px; top: 290px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -2.4s">
+            <img src="assets/diagram/src-4.svg" alt="OpenLMIS" style="width: 30px; height: 30px; object-fit: contain">
+          </div>
+          <div style="position: absolute; left: 92px; top: 345px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -3s">
+            <img src="assets/diagram/src-5.svg" alt="Open IASO" style="width: 30px; height: 30px; object-fit: contain">
+          </div>
+          <div style="position: absolute; left: 18px; top: 400px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -3.3s">
+            <img src="assets/diagram/src-6.png" alt="Data source" style="width: 30px; height: 30px; object-fit: contain">
+          </div>
+          <div style="position: absolute; left: 92px; top: 455px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -4.1s">
+            <img src="assets/diagram/src-7.svg" alt="Amazon S3" style="width: 30px; height: 30px; object-fit: contain">
+          </div>
+          <div style="position: absolute; left: 18px; top: 510px; width: 52px; height: 58px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #fff; display: grid; place-items: center; animation: dgTile 6s ease-in-out infinite; animation-delay: -4.5s">
+            <img src="assets/diagram/src-8.svg" alt="Sage X3" style="width: 30px; height: 30px; object-fit: contain">
+          </div>
+
+          <div style="position: absolute; left: 300px; top: 345px; width: 100px; height: 111px; transform: translate(-50%,-50%); animation: dgRing 3.6s ease-out infinite; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: rgba(255,69,154,.5)"></div>
+          <div style="position: absolute; left: 300px; top: 345px; width: 100px; height: 111px; transform: translate(-50%,-50%); animation: dgRing 3.6s ease-out infinite; animation-delay: -1.8s; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: rgba(121,144,255,.45)"></div>
+          <div style="position: absolute; left: 300px; top: 345px; width: 110px; height: 122px; transform: translate(-50%,-50%); display: grid; place-items: center; z-index: 2">
+            <div style="width: 110px; height: 122px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: linear-gradient(135deg, #74FFCF, #EE469A); display: grid; place-items: center; animation: dgCore 4s ease-in-out infinite; filter: drop-shadow(0 0 24px rgba(255,69,154,.55))">
+              <div style="width: 101px; height: 112px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: var(--oh-navy-900, #192041); display: grid; place-items: center">
+                <svg width="44" height="50" viewBox="0 0 42.5 48" fill="none" style="filter: drop-shadow(0 0 10px rgba(255,62,150,.8))">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M42.3892 14.4791C42.3892 12.876 41.2588 10.9004 39.8792 10.0886L23.7585 0.608863C22.3763 -0.202954 20.1182 -0.202954 18.736 0.608863L2.61783 10.0886C1.23826 10.903 0.10788 12.876 0.10788 14.4791V33.5209C0.10788 35.124 1.23826 37.0996 2.61783 37.9114L18.736 47.3911C20.1182 48.203 22.3763 48.203 23.7585 47.3911L39.8767 37.9114C41.2588 37.0996 42.3866 35.124 42.3866 33.5209V14.4791H42.3892Z" fill="#FF3E96"></path>
+                  <path d="M19.8304 40.1053C19.4271 40.1053 19.016 40 18.6461 39.7765L7.59921 33.1663C6.90043 32.7502 6.47397 31.9949 6.47397 31.183V16.5626C6.47397 15.7277 6.92355 14.9595 7.65059 14.5485L15.2524 10.2608C15.9692 9.85742 16.8452 9.86256 17.5543 10.2787C18.2633 10.6924 18.7 11.4528 18.7 12.2749V19.6712L27.2704 24.6834C27.9794 25.097 28.4162 25.8574 28.4162 26.6795V31.7714L31.3937 30.0912V18.1297L21.4772 12.1927C20.3828 11.5376 20.0257 10.1169 20.6808 9.02248C21.3359 7.92807 22.7566 7.57097 23.851 8.22608L34.8953 14.8362C35.5941 15.2524 36.0205 16.0077 36.0205 16.8195V31.4399C36.0205 32.2749 35.571 33.043 34.8439 33.4541L27.2421 37.7418C26.5254 38.1452 25.6493 38.14 24.9403 37.7238C24.2312 37.3102 23.7945 36.5498 23.7945 35.7277V28.0026L15.2241 22.9929C14.5151 22.5793 14.0783 21.8189 14.0783 20.9968V16.2312L11.1008 17.9114V29.8703L21.0225 35.8073C22.1169 36.4624 22.474 37.8831 21.8189 38.9775C21.3847 39.7046 20.6165 40.1053 19.8304 40.1053Z" fill="white"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+  
+
+          <div onMouseEnter="{{ dgEnter }}" onMouseLeave="{{ dgLeave }}" style="position: absolute; left: 300px; top: 95px; width: 950px; height: 500px; box-sizing: border-box; padding: 30px 30px 30px 80px; border-radius: 24px; background: var(--oh-navy-800, #222948); border: 1px solid rgba(121,144,255,.35); box-shadow: 0 0 16px 0 rgba(255,255,255,.08)">
+
+            <div style="display: flex; gap: 12px">
+      
+              <div onClick="{{ dgPick0 }}" style="width: 268px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 16px; cursor: pointer; transition: background 200ms ease, border-color 200ms ease; background: var(--t0-bg, rgba(255,69,154,.14)); border: 1px solid var(--t0-bd, #FF459A)">
+                <svg width="26" height="28" viewBox="0 0 36 38" fill="none">
+                  <path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="var(--t0-hex, #FF459A)"></path>
+                  <text x="18" y="24" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="800" fontFamily="Inter var, Inter, ui-sans-serif, system-ui, sans-serif">1</text>
+                </svg>
+                <span style="font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--t0-fg, #fff)">INTEGRATE</span>
+              </div><div onClick="{{ dgPick1 }}" style="width: 268px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 16px; cursor: pointer; transition: background 200ms ease, border-color 200ms ease; background: var(--t1-bg, rgba(255,255,255,.05)); border: 1px solid var(--t1-bd, rgba(255,255,255,.1))">
+                <svg width="26" height="28" viewBox="0 0 36 38" fill="none">
+                  <path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="var(--t1-hex, #7990FF)"></path>
+                  <text x="18" y="24" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="800" fontFamily="Inter var, Inter, ui-sans-serif, system-ui, sans-serif">2</text>
+                </svg>
+                <span style="font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--t1-fg, rgba(255,255,255,.62))">MANAGE</span>
+              </div>
+              <div onClick="{{ dgPick2 }}" style="width: 268px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 16px; cursor: pointer; transition: background 200ms ease, border-color 200ms ease; background: var(--t2-bg, rgba(255,255,255,.05)); border: 1px solid var(--t2-bd, rgba(255,255,255,.1))">
+                <svg width="26" height="28" viewBox="0 0 36 38" fill="none">
+                  <path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="var(--t2-hex, #7990FF)"></path>
+                  <text x="18" y="24" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="800" fontFamily="Inter var, Inter, ui-sans-serif, system-ui, sans-serif">3</text>
+                </svg>
+                <span style="font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--t2-fg, rgba(255,255,255,.62))">PUBLISH</span>
+              </div>
+            </div>
+
+            <div style="margin: 16px 0 0; height: 1px; background: rgba(121,144,255,.25)"></div>
+
+            <div style="margin-top: 16px; width: 828px; height: 350px; overflow: hidden">
+              <div style="display: flex; width: 2484px; transition: transform 620ms cubic-bezier(.4,0,.2,1); transform: translateX(calc(var(--dg-i, 0) * -828px))">
+
+                <div style="flex: 0 0 828px; height: 350px; display: flex; gap: 40px">
+                  <div style="width: 408px; display: flex; flex-direction: column; gap: 14px; justify-content: center">
+                    <div style="font-size: 24px; line-height: 1.2; font-weight: 800; color: #fff; animation: var(--p0-anim, dgRise) .5s ease-out both">Start from a template or write your own data pipeline</div>
+                    <div style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.8); animation: var(--p0-anim, dgRise) .5s ease-out both; animation-delay: 80ms"><span style="color: var(--oh-pink-400, #FF62AA); font-weight: 700">Pipeline templates</span> handle common workflows out of the box: pull from DHIS2, sync to a database, transform and load. Need something specific? Write <span style="color: var(--oh-pink-400, #FF62AA); font-weight: 700">custom pipelines</span> in Python. Our native <span style="color: var(--oh-pink-400, #FF62AA); font-weight: 700">AI assistant</span> can help you build either.</div>
+                  </div>
+                  <div style="position: relative; width: 380px; height: 350px; animation: var(--p0-anim, dgRise) .5s ease-out both; animation-delay: 140ms">
+                    <div style="position: absolute; left: 10px; top: 192px; width: 234px; height: 96px; box-sizing: border-box; border: 1px dashed rgba(255,69,154,.55); border-radius: 16px; background: rgba(255,69,154,.05)"></div>
+                    <div style="position: absolute; left: 24px; top: 180px; display: flex; align-items: center; gap: 6px; padding: 3px 12px 3px 8px; border-radius: 9999px; background: var(--oh-navy-800, #222948); color: #FF62AA; font-size: 12px; font-weight: 800; letter-spacing: .04em">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M11 1.5 C11.7 6.6 13.4 8.3 18.5 9 C13.4 9.7 11.7 11.4 11 16.5 C10.3 11.4 8.6 9.7 3.5 9 C8.6 8.3 10.3 6.6 11 1.5 Z" fill="#FF62AA"></path><path d="M18.2 14 C18.5 16.4 19.6 17.5 22 17.8 C19.6 18.1 18.5 19.2 18.2 21.6 C17.9 19.2 16.8 18.1 14.4 17.8 C16.8 17.5 17.9 16.4 18.2 14 Z" fill="#FF62AA" opacity=".85"></path></svg>
+                      AI ASSISTANT
+                    </div>
+
+                    <svg width="380" height="350" viewBox="0 0 380 350" fill="none" style="position: absolute; inset: 0">
+                      <path d="M228,102 L262,102 Q272,102 272,112 L272,165" stroke="rgba(255,255,255,.5)" strokeWidth="1.5" fill="none"></path>
+                      <path d="M228,248 L262,248 Q272,248 272,238 L272,175" stroke="rgba(255,255,255,.5)" strokeWidth="1.5" fill="none"></path>
+                      <path d="M272,170 L292,170" stroke="rgba(255,255,255,.5)" strokeWidth="1.5"></path>
+                      <path d="M300,170 L288,164 L288,176 Z" fill="rgba(255,255,255,.75)"></path>
+                    </svg>
+                    <div style="position: absolute; left: 0; top: 0; width: 8px; height: 8px; offset-anchor: 50% 50%; border-radius: 50%; background: #74FFCF; box-shadow: 0 0 10px 3px rgba(116,255,207,.6); offset-path: path('M228,102 L262,102 Q272,102 272,112 L272,170 L296,170'); animation: dgFlow calc(var(--oh-dur, 3.4s) * .9) linear infinite"></div>
+                    <div style="position: absolute; left: 0; top: 0; width: 8px; height: 8px; offset-anchor: 50% 50%; border-radius: 50%; background: #FF62AA; box-shadow: 0 0 10px 3px rgba(255,98,170,.6); offset-path: path('M228,248 L262,248 Q272,248 272,238 L272,170 L296,170'); animation: dgFlow calc(var(--oh-dur, 3.4s) * .9) linear infinite; animation-delay: -0.9s"></div>
+
+                    <div style="position: absolute; left: 26px; top: 62px; width: 202px; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgba(121,144,255,.18); border: 1px solid rgba(121,144,255,.6); display: flex; align-items: center; gap: 12px">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="7.5" height="7.5" rx="1.5" stroke="#CCD5FF" strokeWidth="1.8"></rect>
+                        <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5" fill="#CCD5FF"></rect>
+                        <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5" fill="#CCD5FF"></rect>
+                        <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5" stroke="#CCD5FF" strokeWidth="1.8"></rect>
+                      </svg>
+                      <span style="font-size: 14px; font-weight: 700; color: #fff; line-height: 1.3">Template data pipelines</span>
+                    </div>
+
+                    <div style="position: absolute; left: 26px; top: 208px; width: 202px; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.22); display: flex; align-items: center; gap: 12px">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <path d="M8.5 5 L3.5 12 L8.5 19" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path>
+                        <path d="M15.5 5 L20.5 12 L15.5 19" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path>
+                      </svg>
+                      <span style="font-size: 14px; font-weight: 700; color: #fff; line-height: 1.3">Custom data pipelines</span>
+                    </div>
+            
+
+                    <div style="position: absolute; left: 300px; top: 126px; width: 80px; height: 88px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: linear-gradient(135deg, #74FFCF, #EE469A); display: grid; place-items: center">
+                      <div style="width: 74px; height: 82px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: var(--oh-navy-800, #222948); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                          <ellipse cx="12" cy="5.6" rx="8" ry="3.2" stroke="#74FFCF" strokeWidth="1.7"></ellipse>
+                          <path d="M4 5.6 V12 C4 13.77 7.58 15.2 12 15.2 C16.42 15.2 20 13.77 20 12 V5.6" stroke="#74FFCF" strokeWidth="1.7"></path>
+                          <path d="M4 12 V18.4 C4 20.17 7.58 21.6 12 21.6 C16.42 21.6 20 20.17 20 18.4 V12" stroke="#FF62AA" strokeWidth="1.7"></path>
+                        </svg>
+                        <span style="color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .06em">STORAGE</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="flex: 0 0 828px; height: 350px; display: flex; gap: 40px">
+                  <div style="width: 408px; display: flex; flex-direction: column; gap: 14px; justify-content: center">
+                    <div style="font-size: 24px; line-height: 1.2; font-weight: 800; color: #fff; animation: var(--p1-anim, none) .5s ease-out both">One place for all your data, shared on your terms</div>
+                    <div style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.8); animation: var(--p1-anim, none) .5s ease-out both; animation-delay: 80ms"><span style="color: var(--oh-pink-400, #FF62AA); font-weight: 700;">Databases, datasets, and files</span> live in a single governed workspace. Tag them with metadata, control who can do what and share specific datasets across workspaces and organizations without duplicating anything.</div>
+                  </div>
+                  <div style="position: relative; width: 380px; height: 350px; animation: var(--p1-anim, none) .5s ease-out both; animation-delay: 140ms">
+                    <div style="position: absolute; left: 0; top: 0px; width: 380px; height: 116px; box-sizing: border-box; padding: 12px 16px; border-radius: 14px; background: var(--oh-navy-900, #192041); border: 1px solid rgba(121,144,255,.4); display: flex; flex-direction: column; justify-content: space-between">
+                      <div style="display: flex; align-items: baseline; gap: 8px">
+                        <span style="width: 11px; height: 12px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #7990FF; display: block"></span>
+                        <span style="font-size: 11px; font-weight: 800; letter-spacing: .08em; color: rgba(255,255,255,.65)">WORKSPACE · MALARIA PROGRAM</span>
+                
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 12px">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="flex: none">
+                          <ellipse cx="12" cy="5.6" rx="8" ry="3.2" stroke="#CCD5FF" strokeWidth="1.7"></ellipse>
+                          <path d="M4 5.6 V12 C4 13.77 7.58 15.2 12 15.2 C16.42 15.2 20 13.77 20 12 V5.6" stroke="#CCD5FF" strokeWidth="1.7"></path>
+                          <path d="M4 12 V18.4 C4 20.17 7.58 21.6 12 21.6 C16.42 21.6 20 20.17 20 18.4 V12" stroke="#CCD5FF" strokeWidth="1.7" opacity=".6"></path>
+                        </svg>
+                        <div style="flex: 1">
+                          <div style="font-size: 13px; font-weight: 800; color: #CCD5FF">Database</div>
+                  
+                        </div>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 12px">
+                        <div style="display: flex; gap: 4px; flex: none">
+                          <div style="width: 15px; height: 19px; border-radius: 3px; background: rgba(255,255,255,.3)"></div>
+                          <div style="width: 15px; height: 19px; border-radius: 3px; background: rgba(255,255,255,.2)"></div>
+                          <div style="width: 15px; height: 19px; border-radius: 3px; background: rgba(255,255,255,.12)"></div>
+                        </div>
+                        <div style="flex: 1">
+                          <div style="font-size: 13px; font-weight: 800; color: #fff">Files and datasets</div>
+                  
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style="position: absolute; left: 180px; top: 116px; width: 20px; height: 24px">
+                      <svg width="20" height="24" viewBox="0 0 20 24" fill="none">
+                        <path d="M10,22 V6" stroke="#FF459A" strokeWidth="1.6" strokeDasharray="5 5" style="animation: dgDash calc(var(--oh-dur, 3.4s) * 1.6) linear infinite"></path>
+                        <path d="M10,0 L16,12 L4,12 Z" fill="#FF459A"></path>
+                      </svg>
+                    </div>
+                    <div style="position: absolute; left: 180px; top: 210px; width: 20px; height: 24px">
+                      <svg width="20" height="24" viewBox="0 0 20 24" fill="none">
+                        <path d="M10,2 V18" stroke="#FF459A" strokeWidth="1.6" strokeDasharray="5 5" style="animation: dgDash calc(var(--oh-dur, 3.4s) * 1.6) linear infinite"></path>
+                        <path d="M10,24 L16,12 L4,12 Z" fill="#FF459A"></path>
+                      </svg>
+                    </div>
+
+                    <div style="position: absolute; left: 61px; top: 154px; width: 256px; box-sizing: border-box; display: flex; align-items: center; gap: 9px; padding: 9px 14px; border-radius: 9999px; background: rgba(255,69,154,.14); border: 1px solid var(--oh-pink-500, #FF459A); box-shadow: 0 0 20px 0 rgba(255,69,154,.28)">
+                      <span style="width: 10px; height: 11px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: var(--oh-pink-500, #FF459A); display: block; flex: none"></span><span style="font-size: 12.5px; font-weight: 700; color: #fff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace">malaria_cases_weekly</span>
+              
+                    </div>
+            
+
+                    <div style="position: absolute; left: 0; top: 234px; width: 380px; height: 116px; box-sizing: border-box; padding: 12px 16px; border-radius: 14px; background: var(--oh-navy-900, #192041); border: 1px solid rgba(121,144,255,.4); display: flex; flex-direction: column; justify-content: space-between">
+                      <div style="display: flex; align-items: baseline; gap: 8px">
+                        <span style="width: 11px; height: 12px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: #7990FF; display: block"></span>
+                        <span style="font-size: 11px; font-weight: 800; letter-spacing: .08em; color: rgba(255,255,255,.65)">WORKSPACE · MINISTRY OF HEALTH</span>
+                
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 12px">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="flex: none">
+                          <ellipse cx="12" cy="5.6" rx="8" ry="3.2" stroke="#CCD5FF" strokeWidth="1.7"></ellipse>
+                          <path d="M4 5.6 V12 C4 13.77 7.58 15.2 12 15.2 C16.42 15.2 20 13.77 20 12 V5.6" stroke="#CCD5FF" strokeWidth="1.7"></path>
+                          <path d="M4 12 V18.4 C4 20.17 7.58 21.6 12 21.6 C16.42 21.6 20 20.17 20 18.4 V12" stroke="#CCD5FF" strokeWidth="1.7" opacity=".6"></path>
+                        </svg>
+                        <div style="flex: 1">
+                          <div style="font-size: 13px; font-weight: 800; color: #CCD5FF">Database</div>
+                  
+                        </div>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 12px">
+                        <div style="display: flex; gap: 4px; flex: none">
+                          <div style="width: 15px; height: 19px; border-radius: 3px; background: rgba(255,255,255,.3)"></div>
+                          <div style="width: 15px; height: 19px; border-radius: 3px; background: rgba(255,255,255,.2)"></div>
+                          <div style="width: 15px; height: 19px; border-radius: 3px; background: rgba(255,255,255,.12)"></div>
+                        </div>
+                        <div style="flex: 1">
+                          <div style="font-size: 13px; font-weight: 800; color: #fff">Files and datasets</div>
+                  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="flex: 0 0 828px; height: 350px; display: flex; gap: 40px">
+                  <div style="width: 408px; display: flex; flex-direction: column; gap: 14px; justify-content: center">
+                    <div style="font-size: 24px; line-height: 1.2; font-weight: 800; color: #fff; animation: var(--p2-anim, none) .5s ease-out both">Published data products in minutes</div>
+                    <div style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.8); animation: var(--p2-anim, none) .5s ease-out both; animation-delay: 80ms">Share your results with the world. Notebooks for data scientists. Connect dashboards and generate scheduled reports effortlessly. Create, host and publish impressive <span style="color: var(--oh-pink-400, #FF62AA); font-weight: 700">webapps</span> with the help of our <span style="color: var(--oh-pink-400, #FF62AA); font-weight: 700">AI assistant</span>.&nbsp;</div>
+                  </div>
+                  <div style="position: relative; width: 380px; height: 350px; animation: var(--p2-anim, none) .5s ease-out both; animation-delay: 140ms">
+                    <div style="position: absolute; width: 176px; height: 152px; box-sizing: border-box; padding: 12px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); display: flex; flex-direction: column; gap: 7px; left: 0; top: 4px">
+                      <div style="font-size: 13px; font-weight: 800; color: #fff; letter-spacing: .04em">NOTEBOOKS</div>
+                      <div style="border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,.16); background: rgba(0,0,0,.28); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 7px; line-height: 1.45">
+                        <div style="display: flex; align-items: center; gap: 5px; padding: 4px 7px; background: rgba(255,255,255,.07)">
+                          <span style="width: 5px; height: 5px; border-radius: 50%; background: #74FFCF"></span>
+                          <span style="font-size: 8px; font-weight: 700; letter-spacing: .06em; color: rgba(255,255,255,.5)">Python</span>
+                        </div>
+                        <div style="padding: 5px 6px; display: flex; flex-direction: column; gap: 3px; word-break: break-all; color: rgba(255,255,255,.6)">
+                          <div><span style="color: #FF62AA">from</span> openhexa.sdk.workspaces <span style="color: #FF62AA">import</span> workspace</div>
+                          <div>dataset = workspace.<span style="color: #74FFCF">get_dataset</span>(<span style="color: #FFCD2D">"ds"</span>)</div>
+                        </div>
+                      </div>
+              
+                    </div>
+                    <div style="position: absolute; width: 176px; height: 152px; box-sizing: border-box; padding: 14px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); display: flex; flex-direction: column; gap: 10px; left: 190px; top: 4px">
+                      <div style="font-size: 13px; font-weight: 800; color: #fff; letter-spacing: .04em">DASHBOARDS</div>
+                      <div style="display: flex; align-items: flex-end; gap: 6px; height: 46px">
+                        <div style="width: 12px; height: 40%; border-radius: 3px 3px 0 0; background: #7990FF"></div>
+                        <div style="width: 12px; height: 70%; border-radius: 3px 3px 0 0; background: #7990FF"></div>
+                        <div style="width: 12px; height: 55%; border-radius: 3px 3px 0 0; background: #FF62AA"></div>
+                        <div style="width: 12px; height: 100%; border-radius: 3px 3px 0 0; background: #7990FF"></div>
+                        <div style="width: 12px; height: 62%; border-radius: 3px 3px 0 0; background: #7990FF"></div>
+                      </div>
+                      <div style="margin-top: auto; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.55)"><br></div>
+                    </div>
+                    <div style="position: absolute; width: 176px; height: 152px; box-sizing: border-box; padding: 14px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); display: flex; flex-direction: column; gap: 10px; left: 0; top: 186px">
+                      <div style="font-size: 13px; font-weight: 800; color: #fff; letter-spacing: .04em">AUTOMATED REPORTS</div>
+                      <div style="display: flex; flex-direction: column; gap: 5px">
+                        <div style="height: 6px; border-radius: 3px; background: rgba(255,255,255,.28)"></div>
+                        <div style="height: 6px; width: 75%; border-radius: 3px; background: rgba(255,255,255,.2)"></div>
+                        <div style="height: 6px; width: 88%; border-radius: 3px; background: rgba(255,255,255,.2)"></div>
+                      </div>
+              
+                    </div>
+                    <div style="position: absolute; left: 176px; top: 170px; width: 204px; height: 180px; box-sizing: border-box; border: 1px dashed rgba(255,69,154,.55); border-radius: 16px; background: rgba(255,69,154,.05)"></div>
+                    <div style="position: absolute; left: 190px; top: 158px; display: flex; align-items: center; gap: 6px; padding: 3px 12px 3px 8px; border-radius: 9999px; background: var(--oh-navy-800, #222948); color: #FF62AA; font-size: 12px; font-weight: 800; letter-spacing: .04em">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M11 1.5 C11.7 6.6 13.4 8.3 18.5 9 C13.4 9.7 11.7 11.4 11 16.5 C10.3 11.4 8.6 9.7 3.5 9 C8.6 8.3 10.3 6.6 11 1.5 Z" fill="#FF62AA"></path><path d="M18.2 14 C18.5 16.4 19.6 17.5 22 17.8 C19.6 18.1 18.5 19.2 18.2 21.6 C17.9 19.2 16.8 18.1 14.4 17.8 C16.8 17.5 17.9 16.4 18.2 14 Z" fill="#FF62AA" opacity=".85"></path></svg>
+                      AI ASSISTANT
+                    </div>
+                    <div style="position: absolute; left: 190px; top: 186px; width: 176px; height: 152px; box-sizing: border-box; padding: 14px; border-radius: 12px; background: rgba(255,69,154,.12); border: 1px solid var(--oh-pink-500, #FF459A); display: flex; flex-direction: column; gap: 10px; box-shadow: 0 0 24px 0 rgba(255,69,154,.28)">
+                      <div style="font-size: 13px; font-weight: 800; color: #fff; letter-spacing: .04em">WEB APPS</div>
+                      <div style="border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,.18)">
+                        <div style="display: flex; gap: 4px; padding: 5px 6px; background: rgba(255,255,255,.1)">
+                          <div style="width: 5px; height: 5px; border-radius: 50%; background: #FF62AA"></div>
+                          <div style="width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.4)"></div>
+                          <div style="width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.4)"></div>
+                        </div>
+                        <div style="display: flex; gap: 5px; padding: 7px 6px; background: rgba(255,255,255,.04)">
+                          <div style="width: 26px; height: 22px; border-radius: 3px; background: rgba(255,98,170,.5)"></div>
+                          <div style="flex: 1; display: flex; flex-direction: column; gap: 4px">
+                            <div style="height: 5px; border-radius: 3px; background: rgba(255,255,255,.3)"></div>
+                            <div style="height: 5px; width: 70%; border-radius: 3px; background: rgba(255,255,255,.2)"></div>
+                          </div>
+                        </div>
+                      </div>
+              
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div style="position: absolute; left: 0; top: 0; width: 34px; height: 34px; margin: -8px 0 0 -6px; opacity: var(--dg-cursor-op, 1); transform: translate(var(--dg-cx, 514px), var(--dg-cy, 151px)); transition: transform 700ms cubic-bezier(.5,0,.2,1), opacity 200ms ease; pointer-events: none">
+            <div style="position: absolute; left: 6px; top: 8px; width: 30px; height: 30px; border-radius: 50%; border: 2px solid #fff; animation: var(--dg-ripple-anim, none) 500ms ease-out both"></div>
+            <svg width="22" height="30" viewBox="0 0 22 30" fill="none" style="filter: drop-shadow(0 2px 6px rgba(0,0,0,.5))">
+              <path d="M2 1.5 L2 22 L7.2 17.2 L10.8 26 L14.6 24.4 L11 15.8 L18 15.2 Z" fill="#fff" stroke="#192041" strokeWidth="1.4"></path>
+            </svg>
+          </div>
+
+        </div>
+        </div>
+      </div>
+
+      <div style="display: {{ dgMobShow }}; gap: 14px;">
+        <div style="border: 1px solid rgba(121,144,255,.35); border-radius: 16px; background: var(--oh-navy-800, #222948); padding: 22px 20px; display: grid; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="26" height="28" viewBox="0 0 36 38" fill="none" style="flex: none;">
+              <path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="#FF459A"></path>
+              <text x="18" y="24" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="800" fontFamily="Inter var, Inter, ui-sans-serif, system-ui, sans-serif">1</text>
+            </svg>
+            <span style="font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff;">Integrate</span>
+          </div>
+          <div style="font-size: 21px; line-height: 1.2; letter-spacing: -0.01em; font-weight: 800; color: #fff;">Start from a template or write your own data pipeline</div>
+          <div style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.8);"><span style="color: #FF62AA; font-weight: 700">Pipeline templates</span> handle common workflows out of the box: pull from DHIS2, sync to a database, transform and load. Need something specific? Write <span style="color: #FF62AA; font-weight: 700">custom pipelines</span> in Python. Our native <span style="color: #FF62AA; font-weight: 700">AI assistant</span> can help you build either.</div>
+        </div>
+        <div style="border: 1px solid rgba(121,144,255,.35); border-radius: 16px; background: var(--oh-navy-800, #222948); padding: 22px 20px; display: grid; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="26" height="28" viewBox="0 0 36 38" fill="none" style="flex: none;">
+              <path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="#FF459A"></path>
+              <text x="18" y="24" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="800" fontFamily="Inter var, Inter, ui-sans-serif, system-ui, sans-serif">2</text>
+            </svg>
+            <span style="font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff;">Manage</span>
+          </div>
+          <div style="font-size: 21px; line-height: 1.2; letter-spacing: -0.01em; font-weight: 800; color: #fff;">One place for all your data, shared on your terms</div>
+          <div style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.8);"><span style="color: #FF62AA; font-weight: 700">Databases, datasets, and files</span> live in a single governed workspace. Tag them with metadata, control who can do what and share specific datasets across workspaces and organizations without duplicating anything.</div>
+        </div>
+        <div style="border: 1px solid rgba(121,144,255,.35); border-radius: 16px; background: var(--oh-navy-800, #222948); padding: 22px 20px; display: grid; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="26" height="28" viewBox="0 0 36 38" fill="none" style="flex: none;">
+              <path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="#FF459A"></path>
+              <text x="18" y="24" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="800" fontFamily="Inter var, Inter, ui-sans-serif, system-ui, sans-serif">3</text>
+            </svg>
+            <span style="font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff;">Publish</span>
+          </div>
+          <div style="font-size: 21px; line-height: 1.2; letter-spacing: -0.01em; font-weight: 800; color: #fff;">Published data products in minutes</div>
+          <div style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.8);">Share your results with the world. Notebooks for data scientists. Connect dashboards and generate scheduled reports effortlessly. Create, host and publish impressive <span style="color: #FF62AA; font-weight: 700">webapps</span> with the help of our <span style="color: #FF62AA; font-weight: 700">AI assistant</span>.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  </div>
+
+  <section style="background: #ffffff; padding: 64px 24px; border-bottom: 1px solid var(--gray-200);">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <p style="margin: 0 0 32px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--gray-500);">Trusted by</p>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;">
+        <a href="https://www.worldbank.org/ext/en/home" style="border: 1px solid var(--gray-200); border-radius: 8px; height: 112px; display: flex; align-items: center; justify-content: center; padding: 20px; transition: border-color 160ms, transform 160ms, box-shadow 160ms;" style-hover="border-color: var(--gray-300); transform: translateY(-2px); box-shadow: 0 8px 20px -14px rgba(25,32,65,0.35)"><img src="assets/logos/world-bank.png" alt="World Bank" style="max-width: 125px; max-height: 42px; width: auto; height: auto;"></a>
+        <a href="https://polioeradication.org/" style="border: 1px solid var(--gray-200); border-radius: 8px; height: 112px; display: flex; align-items: center; justify-content: center; padding: 20px; transition: border-color 160ms, transform 160ms, box-shadow 160ms;" style-hover="border-color: var(--gray-300); transform: translateY(-2px); box-shadow: 0 8px 20px -14px rgba(25,32,65,0.35)"><img src="assets/logos/polio.png" alt="Global Polio Eradication Initiative" style="max-width: 125px; max-height: 42px; width: auto; height: auto;"></a>
+        <a href="https://www.who.int/home" style="border: 1px solid var(--gray-200); border-radius: 8px; height: 112px; display: flex; align-items: center; justify-content: center; padding: 20px; transition: border-color 160ms, transform 160ms, box-shadow 160ms;" style-hover="border-color: var(--gray-300); transform: translateY(-2px); box-shadow: 0 8px 20px -14px rgba(25,32,65,0.35)"><img src="assets/logos/who.png" alt="WHO" style="max-width: 102px; max-height: 62px; width: auto; height: auto;"></a>
+        <a href="https://withpathways.org/fr/welcome" style="border: 1px solid var(--gray-200); border-radius: 8px; height: 112px; display: flex; align-items: center; justify-content: center; padding: 20px; transition: border-color 160ms, transform 160ms, box-shadow 160ms;" style-hover="border-color: var(--gray-300); transform: translateY(-2px); box-shadow: 0 8px 20px -14px rgba(25,32,65,0.35)"><img src="assets/logos/pathways.svg" alt="Pathways" style="max-width: 140px; max-height: 32px; width: auto; height: auto;"></a>
+        <a href="https://www.digitalpublicgoods.net/r/openhexa" style="border: 1px solid var(--gray-200); border-radius: 8px; height: 112px; display: flex; align-items: center; justify-content: center; padding: 18px; transition: border-color 160ms, transform 160ms, box-shadow 160ms;" style-hover="border-color: var(--gray-300); transform: translateY(-2px); box-shadow: 0 8px 20px -14px rgba(25,32,65,0.35)"><img src="assets/badges/dpg-alliance.png" alt="Digital Public Goods Alliance" style="max-width: 168px; max-height: 76px; width: auto; height: auto;"></a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #ffffff; border-top: 1px solid var(--gray-200); padding: 72px 24px;">
+    <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 240px; gap: 64px; align-items: center;">
+      <h2 style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.12; letter-spacing: -0.025em; font-weight: 800; color: var(--gray-900);">OpenHEXA is a recognized <a href="https://dhis2.org/technology-partners/" style="color: var(--gray-900); text-decoration: underline; text-decoration-color: rgba(255,69,154,0.5); text-decoration-thickness: 0.18em; text-underline-offset: 0.06em; text-decoration-skip-ink: none;" style-hover="color: #be185d">DHIS2 Technology Partner</a></h2>
+      <img src="assets/badges/dhis2-tech-partner-lg.png" alt="DHIS2 Technology Partner badge" style="width: 100%; max-width: 220px; height: auto; justify-self: end;">
+    </div>
+  </section>
+
+  <section id="product" style="background: #ffffff; padding: 96px 24px;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <p style="margin: 0 0 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #be185d; display: inline-flex; align-items: center; gap: 9px;"><svg width="10" height="11" viewBox="0 0 100 108" style="flex: none;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990ff"></path></svg>The product</p>
+      <h2 style="margin: 0 0 20px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.025em; font-weight: 800; color: var(--gray-900); max-width: 780px;">One workspace, from the source system to <span style="text-decoration: underline; text-decoration-color: rgba(255,69,154,0.5); text-decoration-thickness: 0.18em; text-underline-offset: 0.06em; text-decoration-skip-ink: none;">the dashboard people open every morning</span></h2>
+      <p style="margin: 0 0 40px; font-size: 19px; line-height: 1.55; color: var(--gray-600); max-width: 640px;">Connections, pipelines, datasets, notebooks and web apps, with versioning and access control <span style="text-decoration: underline; text-decoration-color: rgba(255,69,154,0.45); text-decoration-thickness: 0.13em; text-underline-offset: 0.1em; text-decoration-skip-ink: none;">handled once for all of them</span>.</p>
+
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;">
+          <button type="button" onClick="{{ tab0 }}" style="height: 44px; padding: 0 18px; border: 1px solid var(--gray-200); background: {{ t0bg }}; color: {{ t0c }}; font-family: var(--font-sans); font-size: 14px; font-weight: 600; border-radius: 9999px; cursor: pointer; white-space: nowrap; transition: border-color 140ms, background 140ms, color 140ms;" style-hover="border-color: #ff459a">Data integration</button>
+          <button type="button" onClick="{{ tab1 }}" style="height: 44px; padding: 0 18px; border: 1px solid var(--gray-200); background: {{ t1bg }}; color: {{ t1c }}; font-family: var(--font-sans); font-size: 14px; font-weight: 600; border-radius: 9999px; cursor: pointer; white-space: nowrap; transition: border-color 140ms, background 140ms, color 140ms;" style-hover="border-color: #ff459a">Data management</button>
+          <button type="button" onClick="{{ tab2 }}" style="height: 44px; padding: 0 18px; border: 1px solid var(--gray-200); background: {{ t2bg }}; color: {{ t2c }}; font-family: var(--font-sans); font-size: 14px; font-weight: 600; border-radius: 9999px; cursor: pointer; white-space: nowrap; transition: border-color 140ms, background 140ms, color 140ms;" style-hover="border-color: #ff459a">Analysis and visualization</button>
+          <button type="button" onClick="{{ tab3 }}" style="height: 44px; padding: 0 18px; border: 1px solid var(--gray-200); background: {{ t3bg }}; color: {{ t3c }}; font-family: var(--font-sans); font-size: 14px; font-weight: 600; border-radius: 9999px; cursor: pointer; white-space: nowrap; transition: border-color 140ms, background 140ms, color 140ms;" style-hover="border-color: #ff459a">Web apps</button>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start;">
+        <div style="flex: 1 1 340px; max-width: 400px; min-width: 0;">
+            <sc-if value="{{ isTab0 }}" hint-placeholder-val="{{ true }}">
+              <div style="display: grid; gap: 20px; align-content: start; animation: ohRise 300ms ease-out both;">
+                <span style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 38px; flex: none;"><svg width="36" height="38" viewBox="0 0 36 38" fill="none" style="position: absolute; inset: 0;"><path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="#7990FF"></path></svg><span style="position: relative; font-size: 20px; font-weight: 800; color: #ffffff;">1</span></span>
+                <h3 style="margin: 0; font-size: 30px; line-height: 1.1; letter-spacing: -0.022em; font-weight: 800; color: var(--gray-900);">Data integration</h3>
+                <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--gray-700);">Unlock the full potential of your data by connecting, automating, and collaborating.</p>
+                <div style="display: grid; gap: 14px;">
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Seamlessly connect to a wide array of data sources using standard adapters or tailor custom solutions to fit your unique requirements.</p></div>
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Automate every step of your data processing pipeline to achieve faster, consistent, and scalable outcomes.</p></div>
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Share data, code, and insights effortlessly with experts across teams and organizations.</p></div>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isTab1 }}" hint-placeholder-val="{{ false }}">
+              <div style="display: grid; gap: 20px; align-content: start; animation: ohRise 300ms ease-out both;">
+                <span style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 38px; flex: none;"><svg width="36" height="38" viewBox="0 0 36 38" fill="none" style="position: absolute; inset: 0;"><path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="#7990FF"></path></svg><span style="position: relative; font-size: 20px; font-weight: 800; color: #ffffff;">2</span></span>
+                <h3 style="margin: 0; font-size: 30px; line-height: 1.1; letter-spacing: -0.022em; font-weight: 800; color: var(--gray-900);">Data management</h3>
+                <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--gray-700);">Keep your data accessible, organized, and ready for action.</p>
+                <div style="display: grid; gap: 14px;">
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Manage structured and unstructured data efficiently with built-in support for files, datasets, and databases.</p></div>
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Handle growing data volumes with flexible storage solutions that expand with your business needs.</p></div>
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Securely share datasets and files within and beyond your organization, ensuring seamless collaboration.</p></div>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isTab2 }}" hint-placeholder-val="{{ false }}">
+              <div style="display: grid; gap: 20px; align-content: start; animation: ohRise 300ms ease-out both;">
+                <span style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 38px; flex: none;"><svg width="36" height="38" viewBox="0 0 36 38" fill="none" style="position: absolute; inset: 0;"><path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="#7990FF"></path></svg><span style="position: relative; font-size: 20px; font-weight: 800; color: #ffffff;">3</span></span>
+                <h3 style="margin: 0; font-size: 30px; line-height: 1.1; letter-spacing: -0.022em; font-weight: 800; color: var(--gray-900);">Analysis and visualization</h3>
+                <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--gray-700);">Turn data into actionable insights through powerful analysis tools.</p>
+                <div style="display: grid; gap: 14px;">
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Empower data scientists with a versatile notebook platform for dynamic, real-time data exploration.</p></div>
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Build customized visualizations for a deeper understanding of your data.</p></div>
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Connect dashboards and generate scheduled reports effortlessly.</p></div>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isTab3 }}" hint-placeholder-val="{{ false }}">
+              <div style="display: grid; gap: 20px; align-content: start; animation: ohRise 300ms ease-out both;">
+                <span style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 38px; flex: none;"><svg width="36" height="38" viewBox="0 0 36 38" fill="none" style="position: absolute; inset: 0;"><path d="M14 1.3094C16.4752 -0.119662 19.5248 -0.119662 22 1.3094L31.3205 6.6906C33.7957 8.11966 35.3205 10.7607 35.3205 13.6188V24.3812C35.3205 27.2393 33.7957 29.8803 31.3205 31.3094L22 36.6906C19.5248 38.1197 16.4752 38.1197 14 36.6906L4.67949 31.3094C2.20428 29.8803 0.679491 27.2393 0.679491 24.3812V13.6188C0.679491 10.7607 2.20428 8.11966 4.67949 6.6906L14 1.3094Z" fill="#7990FF"></path></svg><span style="position: relative; font-size: 20px; font-weight: 800; color: #ffffff;">4</span></span>
+                <h3 style="margin: 0; font-size: 30px; line-height: 1.1; letter-spacing: -0.022em; font-weight: 800; color: var(--gray-900);">Web apps</h3>
+                <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--gray-700);">Package the work into something your program teams can open.</p>
+                <div style="display: grid; gap: 14px;">
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Ship a web app straight from the workspace, with access control already handled.</p></div>
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Plug Tableau, Power BI, Superset or Metabase into the same governed tables.</p></div>
+                  <div style="display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;"><svg width="11" height="12" viewBox="0 0 100 108" style="margin-top: 6px;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990FF"></path></svg><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-600);">Program teams get a URL that stays current, rather than an export.</p></div>
+                </div>
+              </div>
+            </sc-if>
+        </div>
+
+        <div style="flex: 4 1 620px; min-width: 0; border: 1px solid var(--gray-200); border-radius: 12px; background: #ffffff; overflow: hidden; box-shadow: 0 18px 50px -28px rgba(25,32,65,0.28);">
+          <div style="display: grid; grid-template-columns: 196px minmax(0, 1fr); min-height: 470px;">
+            <div style="border-right: 1px solid var(--gray-200); background: var(--gray-50); padding: 18px 0;">
+              <div style="padding: 0 16px 16px; display: flex; align-items: center; gap: 10px;">
+                <span style="width: 26px; height: 26px; border-radius: 6px; background: var(--gray-200); display: inline-flex; align-items: center; justify-content: center; color: var(--gray-700); font-size: 11px; font-weight: 700;">NM</span>
+                <span style="font-size: 13px; color: var(--gray-900); font-weight: 600;">National malaria</span>
+              </div>
+              <div style="display: grid; gap: 2px;">
+                <div style="display: flex; align-items: center; gap: 10px; padding: 9px 16px; color: var(--gray-600); font-size: 13px;">Home</div>
+                <div style="display: flex; align-items: center; gap: 10px; padding: 9px 13px; font-size: 13px; background: {{ n0bg }}; color: {{ n0c }}; border-left: 3px solid {{ n0bl }}; font-weight: {{ n0w }};">Connections</div>
+                <div style="display: flex; align-items: center; gap: 10px; padding: 9px 13px; font-size: 13px; background: {{ n1bg }}; color: {{ n1c }}; border-left: 3px solid {{ n1bl }}; font-weight: {{ n1w }};">Datasets</div>
+                <div style="display: flex; align-items: center; gap: 10px; padding: 9px 13px; font-size: 13px; background: {{ n2bg }}; color: {{ n2c }}; border-left: 3px solid {{ n2bl }}; font-weight: {{ n2w }};">Notebooks</div>
+                <div style="display: flex; align-items: center; gap: 10px; padding: 9px 16px; color: var(--gray-600); font-size: 13px;">Database</div>
+                <div style="display: flex; align-items: center; gap: 10px; padding: 9px 13px; font-size: 13px; background: {{ n3bg }}; color: {{ n3c }}; border-left: 3px solid {{ n3bl }}; font-weight: {{ n3w }};">Apps</div>
+              </div>
+            </div>
+
+            <div style="padding: 0; min-width: 0;">
+              <sc-if value="{{ isTab0 }}" hint-placeholder-val="{{ true }}">
+                <div style="animation: ohRise 300ms ease-out both;">
+                  <div style="display: flex; align-items: center; gap: 14px; padding: 15px 20px; border-bottom: 1px solid var(--gray-200);">
+                    <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: var(--gray-900);">Connections</h4>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);">Sierra Leone</span>
+                  </div>
+                  <div style="padding: 24px 20px; background: var(--gray-50); display: flex; align-items: flex-start; justify-content: center; min-height: 400px;">
+                    <img src="assets/product/tab-pipelines.png" alt="Connections page with the create-a-pipeline dialog open" style="width: 100%; max-width: 860px; height: auto; border-radius: 10px; box-shadow: 0 10px 30px -14px rgba(25,32,65,0.35); display: block; transition: transform 260ms var(--ease-standard), box-shadow 260ms;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 44px -18px rgba(25,32,65,0.42)">
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ isTab1 }}" hint-placeholder-val="{{ false }}">
+                <div style="animation: ohRise 300ms ease-out both;">
+                  <div style="display: flex; align-items: center; gap: 14px; padding: 15px 20px; border-bottom: 1px solid var(--gray-200);">
+                    <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: var(--gray-900);">Life Expectancy Around the World</h4>
+                    <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--gray-900); color: #ffffff; border-radius: 9999px; padding: 3px 9px;">v1 latest</span>
+                  </div>
+                  <div style="padding: 24px 20px; background: var(--gray-50); display: flex; align-items: flex-start; justify-content: center; min-height: 400px;">
+                    <img src="assets/product/tab-datasets.png" alt="Dataset file browser with a preview of the selected CSV" style="width: 100%; max-width: 860px; height: auto; border-radius: 10px; box-shadow: 0 10px 30px -14px rgba(25,32,65,0.35); display: block; transition: transform 260ms var(--ease-standard), box-shadow 260ms;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 44px -18px rgba(25,32,65,0.42)">
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ isTab2 }}" hint-placeholder-val="{{ false }}">
+                <div style="animation: ohRise 300ms ease-out both;">
+                  <div style="display: flex; align-items: center; gap: 14px; padding: 15px 20px; border-bottom: 1px solid var(--gray-200);">
+                    <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: var(--gray-900);">rh_indicators.ipynb</h4>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);">Python 3.11</span>
+                  </div>
+                  <div style="padding: 24px 20px; background: var(--gray-50); display: flex; align-items: flex-start; justify-content: center; min-height: 400px;">
+                    <img src="assets/product/tab-notebook.png" alt="JupyterLab notebook plotting district boundaries" style="width: 100%; max-width: 860px; height: auto; border-radius: 10px; box-shadow: 0 10px 30px -14px rgba(25,32,65,0.35); display: block; transition: transform 260ms var(--ease-standard), box-shadow 260ms;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 44px -18px rgba(25,32,65,0.42)">
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ isTab3 }}" hint-placeholder-val="{{ false }}">
+                <div style="animation: ohRise 300ms ease-out both;">
+                  <div style="display: flex; align-items: center; gap: 14px; padding: 15px 20px; border-bottom: 1px solid var(--gray-200);">
+                    <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: var(--gray-900);">dengue-surveillance</h4>
+                    <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #ff459a; color: #192041; border-radius: 9999px; padding: 3px 9px;">published</span>
+                  </div>
+                  <div style="padding: 24px 20px; background: var(--gray-50); display: flex; align-items: flex-start; justify-content: center; min-height: 400px;">
+                    <img src="assets/posts/dengue-dashboard.png" alt="Published dengue surveillance dashboard" style="width: 100%; max-width: 860px; height: auto; border-radius: 10px; box-shadow: 0 10px 30px -14px rgba(25,32,65,0.35); display: block; transition: transform 260ms var(--ease-standard), box-shadow 260ms;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 44px -18px rgba(25,32,65,0.42)">
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+  </div></div></section>
+
+  <section id="ai" style="background: #ffffff; padding: 96px 24px; position: relative; overflow: hidden;">
+    <svg aria-hidden="true" width="620" height="660" viewBox="0 0 100 108" style="position: absolute; right: -160px; bottom: -180px; opacity: 0.12; animation: ohFloatSlow 24s ease-in-out infinite;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="none" stroke="#7990ff" stroke-width="0.8"></path></svg>
+    <svg aria-hidden="true" width="380" height="410" viewBox="0 0 100 108" style="position: absolute; left: -170px; top: 40px; opacity: 0.07; animation: ohFloat 19s ease-in-out infinite;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="none" stroke="#ff459a" stroke-width="1"></path></svg>
+    <div style="position: relative; max-width: 1280px; margin: 0 auto;">
+      <p style="margin: 0 0 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #be185d; display: inline-flex; align-items: center; gap: 9px;"><svg width="10" height="11" viewBox="0 0 100 108" style="flex: none;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#ff459a"></path></svg>AI in the workspace</p>
+      <h2 style="margin: 0 0 20px; font-size: clamp(32px, 3.8vw, 50px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; color: var(--gray-900); max-width: 940px;">From a sentence to a <span style="text-decoration: underline; text-decoration-color: rgba(255,69,154,0.5); text-decoration-thickness: 0.18em; text-underline-offset: 0.06em; text-decoration-skip-ink: none;">shipped data product</span> — the last mile, gone</h2>
+      <p style="margin: 0 0 28px; font-size: 19px; line-height: 1.6; color: var(--gray-600); max-width: 700px;">Ask for the change in the panel beside the editor. The assistant knows your workspace and the OpenHEXA SDK, so what comes back is <span style="text-decoration: underline; text-decoration-color: rgba(255,69,154,0.45); text-decoration-thickness: 0.13em; text-underline-offset: 0.1em; text-decoration-skip-ink: none;">code that runs</span> — as a diff you accept, edit or reject, in a version nothing publishes from until you say so.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 44px;">
+        <span style="display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 15px; border: 1px solid var(--gray-200); border-radius: 9999px; font-size: 13px; font-weight: 600; color: var(--gray-700); background: var(--gray-50);"><svg width="9" height="10" viewBox="0 0 100 108" style="flex: none;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#ff459a"></path></svg>Reviewable diffs</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 15px; border: 1px solid var(--gray-200); border-radius: 9999px; font-size: 13px; font-weight: 600; color: var(--gray-700); background: var(--gray-50);"><svg width="9" height="10" viewBox="0 0 100 108" style="flex: none;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990ff"></path></svg>Knows the OpenHEXA SDK</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 15px; border: 1px solid var(--gray-200); border-radius: 9999px; font-size: 13px; font-weight: 600; color: var(--gray-700); background: var(--gray-50);"><svg width="9" height="10" viewBox="0 0 100 108" style="flex: none;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#74ffcf"></path></svg>Every version kept</span>
+      </div>
+
+      <div style="position: relative;">
+        <div aria-hidden="true" style="position: absolute; left: 2%; right: 2%; top: 10%; bottom: 4%; background: radial-gradient(50% 60% at 24% 45%, rgba(255,69,154,0.14) 0%, rgba(255,69,154,0) 70%), radial-gradient(50% 60% at 76% 55%, rgba(121,144,255,0.14) 0%, rgba(121,144,255,0) 70%); filter: blur(10px); pointer-events: none;"></div>
+        <div style="position: relative; display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start;">
+        <figure style="flex: 1 1 420px; min-width: 0; margin: 0; display: grid; gap: 12px;">
+          <div style="position: relative; border: 1px solid var(--gray-200); border-radius: 12px; overflow: hidden; box-shadow: 0 18px 46px -30px rgba(25,32,65,0.42); background: #ffffff; transition: transform 320ms var(--ease-standard), box-shadow 320ms;" style-hover="transform: translateY(-4px); box-shadow: 0 28px 64px -32px rgba(25,32,65,0.48)">
+            <div style="display: flex; align-items: center; gap: 7px; padding: 0 12px; height: 34px; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);">
+              <span style="width: 8px; height: 8px; border-radius: 9999px; background: var(--gray-300); flex: none;"></span>
+              <span style="width: 8px; height: 8px; border-radius: 9999px; background: var(--gray-300); flex: none;"></span>
+              <span style="width: 8px; height: 8px; border-radius: 9999px; background: var(--gray-300); flex: none;"></span>
+              <span style="margin: 0 auto; display: inline-flex; align-items: center; height: 22px; padding: 0 12px; border-radius: 9999px; background: #ffffff; border: 1px solid var(--gray-200); font-family: var(--font-mono); font-size: 10.5px; color: var(--gray-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; max-width: 100%; display: block; line-height: 20px;">app.openhexa.org / pipelines / dhis2-extractor</span>
+            </div>
+            <img src="assets/ai-pipeline-assistant.gif" alt="The OpenHEXA AI assistant adding a parameter to a pipeline, shown as a reviewable diff" style="width: 100%; height: auto; display: block;">
+          </div>
+          <figcaption style="display: flex; align-items: baseline; gap: 9px; font-size: 13.5px; color: var(--gray-600);"><svg width="9" height="10" viewBox="0 0 100 108" style="flex: none; transform: translateY(1px);"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#ff459a"></path></svg><span><span style="color: var(--gray-900); font-weight: 600;">A pipeline gains a parameter, as a reviewable diff</span></span></figcaption>
+        </figure>
+        <figure style="flex: 1 1 420px; min-width: 0; margin: 0; display: grid; gap: 12px;">
+          <div style="position: relative; border: 1px solid var(--gray-200); border-radius: 12px; overflow: hidden; box-shadow: 0 18px 46px -30px rgba(25,32,65,0.42); background: #ffffff; transition: transform 320ms var(--ease-standard), box-shadow 320ms;" style-hover="transform: translateY(-4px); box-shadow: 0 28px 64px -32px rgba(25,32,65,0.48)">
+            <div style="display: flex; align-items: center; gap: 7px; padding: 0 12px; height: 34px; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);">
+              <span style="width: 8px; height: 8px; border-radius: 9999px; background: var(--gray-300); flex: none;"></span>
+              <span style="width: 8px; height: 8px; border-radius: 9999px; background: var(--gray-300); flex: none;"></span>
+              <span style="width: 8px; height: 8px; border-radius: 9999px; background: var(--gray-300); flex: none;"></span>
+              <span style="margin: 0 auto; display: inline-flex; align-items: center; height: 22px; padding: 0 12px; border-radius: 9999px; background: #ffffff; border: 1px solid var(--gray-200); font-family: var(--font-mono); font-size: 10.5px; color: var(--gray-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; max-width: 100%; display: block; line-height: 20px;">app.openhexa.org / webapps / dengue-incidence</span>
+            </div>
+            <img src="assets/ai-webapp-assistant.gif" alt="The OpenHEXA AI assistant building an interactive dengue incidence dashboard from a dataset" style="width: 100%; height: auto; display: block;">
+          </div>
+          <figcaption style="display: flex; align-items: baseline; gap: 9px; font-size: 13.5px; color: var(--gray-600);"><svg width="9" height="10" viewBox="0 0 100 108" style="flex: none; transform: translateY(1px);"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#ff459a"></path></svg><span><span style="color: var(--gray-900); font-weight: 600;">A dataset becomes an interactive dashboard</span></span></figcaption>
+        </figure>
+        </div>
+      </div>
+
+      <div style="margin-top: 88px; display: flex; flex-wrap: wrap; gap: 64px; align-items: center;">
+        <div style="flex: 1 1 380px; min-width: 0; max-width: 520px;">
+          <h3 style="margin: 0 0 18px; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.12; letter-spacing: -0.022em; font-weight: 800; color: var(--gray-900);">Or bring the assistant <span style="text-decoration: underline; text-decoration-color: rgba(255,69,154,0.5); text-decoration-thickness: 0.18em; text-underline-offset: 0.06em; text-decoration-skip-ink: none;">you already use</span></h3>
+          <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.6; color: var(--gray-600);">OpenHEXA ships an MCP server with 31 tools, so Claude, ChatGPT or Gemini can browse workspaces, read datasets and the warehouse schema, run pipelines and build web apps against your data.</p>
+          <p style="margin: 0 0 28px; font-size: 17px; line-height: 1.6; color: var(--gray-600);">You sign in over OAuth and it operates with your permissions, <span style="text-decoration: underline; text-decoration-color: rgba(255,69,154,0.45); text-decoration-thickness: 0.13em; text-underline-offset: 0.1em; text-decoration-skip-ink: none;">only your permissions</span>. If you cannot open a workspace in OpenHEXA, your assistant cannot either.</p>
+          <a href="https://app.openhexa.org/mcp/" style="display: inline-flex; align-items: center; height: 46px; padding: 0 22px; border: 1px solid var(--gray-400); border-radius: 9999px; font-size: 15px; font-weight: 700; color: var(--gray-900); transition: all 150ms;" style-hover="border-color: #ff459a; color: #be185d">Check the MCP server</a>
+        </div>
+
+        <div style="flex: 1 1 420px; min-width: 0; border: 1px solid var(--gray-200); border-radius: 12px; background: #ffffff; overflow: hidden; box-shadow: 0 14px 40px -26px rgba(25,32,65,0.35);">
+          <div style="display: flex; align-items: center; gap: 9px; padding: 13px 16px; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);">
+            <span style="width: 7px; height: 7px; border-radius: 9999px; background: #ff459a; animation: ohPulse 2s ease-in-out infinite;"></span>
+            <span style="font-size: 12px; color: var(--gray-700); font-weight: 600;">Your assistant</span>
+            <span style="margin-left: auto; font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);">openhexa · mcp</span>
+          </div>
+          <div style="padding: 16px; display: grid; gap: 10px; min-height: 396px; align-content: start;">
+            <div style="justify-self: end; max-width: 86%; background: #192041; border-radius: 12px 12px 2px 12px; padding: 11px 14px; font-size: 13.5px; line-height: 1.55; color: #ffffff; animation: ohT0 18s ease-out infinite both;">Build me a district completeness dashboard from the national malaria workspace.</div>
+            <div style="border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; animation: ohT1 18s ease-out infinite both;">
+              <div style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: var(--gray-50); flex-wrap: wrap;">
+                <span style="position: relative; width: 13px; height: 13px; flex: none;">
+                  <span style="position: absolute; inset: 0; border-radius: 9999px; border: 2px solid var(--gray-300); border-top-color: #4361ee; animation: ohSpin 800ms linear infinite, ohS1 18s linear infinite both;"></span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="3.2" style="position: absolute; inset: 0; width: 13px; height: 13px; animation: ohC1 18s linear infinite both;"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--gray-900); font-weight: 600;">list_workspaces</span>
+                <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);"></span>
+              </div>
+              <div style="padding: 8px 12px 9px 35px; border-top: 1px solid var(--gray-200); font-family: var(--font-mono); font-size: 11px; color: var(--gray-600); animation: ohR1 18s linear infinite both;">3 workspaces · national-malaria</div>
+            </div>
+            <div style="border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; animation: ohT2 18s ease-out infinite both;">
+              <div style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: var(--gray-50); flex-wrap: wrap;">
+                <span style="position: relative; width: 13px; height: 13px; flex: none;">
+                  <span style="position: absolute; inset: 0; border-radius: 9999px; border: 2px solid var(--gray-300); border-top-color: #4361ee; animation: ohSpin 800ms linear infinite, ohS2 18s linear infinite both;"></span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="3.2" style="position: absolute; inset: 0; width: 13px; height: 13px; animation: ohC2 18s linear infinite both;"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--gray-900); font-weight: 600;">get_db_table_schema</span>
+                <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);">monthly_indicators</span>
+              </div>
+              <div style="padding: 8px 12px 9px 35px; border-top: 1px solid var(--gray-200); font-family: var(--font-mono); font-size: 11px; color: var(--gray-600); animation: ohR2 18s linear infinite both;">14 columns · district, period, completeness…</div>
+            </div>
+            <div style="border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; animation: ohT3 18s ease-out infinite both;">
+              <div style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: var(--gray-50); flex-wrap: wrap;">
+                <span style="position: relative; width: 13px; height: 13px; flex: none;">
+                  <span style="position: absolute; inset: 0; border-radius: 9999px; border: 2px solid var(--gray-300); border-top-color: #4361ee; animation: ohSpin 800ms linear infinite, ohS3 18s linear infinite both;"></span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="3.2" style="position: absolute; inset: 0; width: 13px; height: 13px; animation: ohC3 18s linear infinite both;"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--gray-900); font-weight: 600;">create_static_webapp</span>
+                <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gray-500);">program-review</span>
+              </div>
+              <div style="padding: 8px 12px 9px 35px; border-top: 1px solid var(--gray-200); font-family: var(--font-mono); font-size: 11px; color: var(--gray-600); animation: ohR3 18s linear infinite both;">created · not published</div>
+            </div>
+            <div style="max-width: 92%; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px 12px 12px 2px; padding: 13px 14px; font-size: 13.5px; line-height: 1.6; color: var(--gray-700); animation: ohT4 18s ease-out infinite both;">Built it as a static web app in <span style="font-family: var(--font-mono); font-size: 12px;">national-malaria</span>, scoped to that one table. It is sitting in the workspace unpublished, ready for your review.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="integrations" style="background: #ffffff; padding: 96px 24px;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <p style="margin: 0 0 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #be185d; display: inline-flex; align-items: center; gap: 9px;"><svg width="10" height="11" viewBox="0 0 100 108" style="flex: none;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990ff"></path></svg>Integrations</p>
+      <h2 style="margin: 0 0 48px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.025em; font-weight: 800; color: var(--gray-900); max-width: 640px;">Connect <span style="text-decoration: underline; text-decoration-color: rgba(255,69,154,0.5); text-decoration-thickness: 0.18em; text-underline-offset: 0.06em; text-decoration-skip-ink: none;">what you already run</span></h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        <div style="border: 1px solid var(--gray-200); border-radius: 12px; padding: 28px; display: grid; gap: 20px; align-content: start; transition: transform 180ms var(--ease-standard), box-shadow 180ms;" style-hover="transform: translateY(-3px); box-shadow: 0 14px 34px -22px rgba(25,32,65,0.4)">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 700; color: var(--gray-900);">Health and program systems</h3>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/dhis2.svg" alt="DHIS2" style="max-width: 38px; max-height: 26px;"></div>
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/iaso.svg" alt="IASO" style="max-width: 38px; max-height: 26px;"></div>
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/openlmis.svg" alt="OpenLMIS" style="max-width: 38px; max-height: 26px;"></div>
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/odk.png" alt="ODK" style="max-width: 38px; max-height: 26px; object-fit: contain;"></div>
+          </div>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--gray-600);">Routine data, registries, survey submissions and stock records, read on a schedule.</p>
+        </div>
+        <div style="border: 1px solid var(--gray-200); border-radius: 12px; padding: 28px; display: grid; gap: 20px; align-content: start; transition: transform 180ms var(--ease-standard), box-shadow 180ms;" style-hover="transform: translateY(-3px); box-shadow: 0 14px 34px -22px rgba(25,32,65,0.4)">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 700; color: var(--gray-900);">Databases and storage</h3>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/postgres.png" alt="PostgreSQL" style="max-width: 34px; max-height: 26px; object-fit: contain;"></div>
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/gcs.png" alt="Google Cloud Storage" style="max-width: 34px; max-height: 26px; object-fit: contain;"></div>
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/parquet.png" alt="Parquet" style="max-width: 34px; max-height: 26px; object-fit: contain;"></div>
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/csv.png" alt="CSV" style="max-width: 30px; max-height: 26px; object-fit: contain;"></div>
+          </div>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--gray-600);">Your own warehouse, object storage and flat files, in and out.</p>
+        </div>
+        <div style="border: 1px solid var(--gray-200); border-radius: 12px; padding: 28px; display: grid; gap: 20px; align-content: start; transition: transform 180ms var(--ease-standard), box-shadow 180ms;" style-hover="transform: translateY(-3px); box-shadow: 0 14px 34px -22px rgba(25,32,65,0.4)">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 700; color: var(--gray-900);">Reference and open data</h3>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/worldpop.png" alt="WorldPop" style="max-width: 44px; max-height: 26px; object-fit: contain;"></div>
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/era5.png" alt="Copernicus ERA5" style="max-width: 38px; max-height: 26px; object-fit: contain;"></div>
+            <div style="height: 64px; border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: box-shadow 140ms, border-color 140ms;" style-hover="box-shadow: var(--shadow-sm); border-color: var(--gray-300)"><img src="assets/connectors/excel.svg" alt="Excel" style="max-width: 38px; max-height: 26px;"></div>
+            <div style="height: 64px; border: 1px dashed var(--gray-300); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: var(--gray-500);">Custom</div>
+          </div>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--gray-600);">Population, climate and spreadsheet inputs, plus a connector interface for anything missing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources" style="background: #ffffff; padding: 96px 24px;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <p style="margin: 0 0 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #be185d; display: inline-flex; align-items: center; gap: 9px;"><svg width="10" height="11" viewBox="0 0 100 108" style="flex: none;"><path d="M50 0 L93.3 25 V83 L50 108 L6.7 83 V25 Z" fill="#7990ff"></path></svg>Resources</p>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 48px;">
+        <h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.025em; font-weight: 800; color: var(--gray-900);">From the blog</h2>
+        <a href="https://www.openhexa.com/blog/" style="font-size: 15px; font-weight: 700; color: #4361ee;">All posts →</a>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+        <article style="display: grid; gap: 14px; align-content: start;">
+          <a href="https://www.openhexa.com/openhexa-native-ai-assistant-webapps/" style="position: relative; display: block; border-radius: 16px; overflow: hidden; aspect-ratio: 340 / 200;">
+            <img src="assets/posts/dengue-dashboard.png" alt="Introducing the native AI assistant for OpenHEXA webapps" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 420ms var(--ease-standard);" style-hover="transform: scale(1.04)">
+            <span style="position: absolute; left: 10px; top: 10px; border-radius: 8px; padding: 4px 8px; background: #4361ee; color: #ffffff; font-size: 13px; font-weight: 700;">Feature</span>
+          </a>
+          <p style="margin: 0; font-size: 12px; color: var(--gray-500);">July 16th, 2026</p>
+          <a href="https://www.openhexa.com/openhexa-native-ai-assistant-webapps/" style="font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--gray-900);" style-hover="color: #4361ee">Introducing the native AI assistant for OpenHEXA webapps</a>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--gray-600); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Your team already turns raw data into pipelines, datasets, and dashboards inside OpenHEXA. The hard part has always been the last mile: packaging that works into something other people can actually open, click through, and use.</p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="https://www.openhexa.com/tag/artificial-intelligence/" style="border-radius: 4px; padding: 4px 8px; background: #ededed; color: var(--gray-800); font-size: 12px; font-weight: 600;" style-hover="color: var(--gray-900)">Artificial Intelligence</a>
+          </div>
+          <a href="https://www.openhexa.com/openhexa-native-ai-assistant-webapps/" style="font-size: 14px; font-weight: 700; color: #4361ee; transition: color 140ms;" style-hover="color: #be185d">Read more →</a>
+        </article>
+
+        <article style="display: grid; gap: 14px; align-content: start;">
+          <a href="https://www.openhexa.com/create-pipelines-using-openhexas-ai-assistant/" style="position: relative; display: block; border-radius: 16px; overflow: hidden; aspect-ratio: 340 / 200;">
+            <img src="assets/posts/ai-pipelines.png" alt="Create pipelines using OpenHEXA's AI assistant" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 420ms var(--ease-standard);" style-hover="transform: scale(1.04)">
+            <span style="position: absolute; left: 10px; top: 10px; border-radius: 8px; padding: 4px 8px; background: #4361ee; color: #ffffff; font-size: 13px; font-weight: 700;">Feature</span>
+          </a>
+          <p style="margin: 0; font-size: 12px; color: var(--gray-500);">May 27th, 2026</p>
+          <a href="https://www.openhexa.com/create-pipelines-using-openhexas-ai-assistant/" style="font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--gray-900);" style-hover="color: #4361ee">Create pipelines using OpenHEXA’s AI assistant</a>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--gray-600); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Data teams frequently struggle with the initial friction of translating data logic into production-grade execution scripts. While data analysts deeply understand their data assets and the metrics they need to extract, writing boilerplate pipeline code from scratch can slow down project initiation.</p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="https://www.openhexa.com/tag/artificial-intelligence/" style="border-radius: 4px; padding: 4px 8px; background: #ededed; color: var(--gray-800); font-size: 12px; font-weight: 600;" style-hover="color: var(--gray-900)">Artificial Intelligence</a>
+            <a href="https://www.openhexa.com/tag/template-pipelines/" style="border-radius: 4px; padding: 4px 8px; background: #ededed; color: var(--gray-800); font-size: 12px; font-weight: 600;" style-hover="color: var(--gray-900)">Template pipelines</a>
+          </div>
+          <a href="https://www.openhexa.com/create-pipelines-using-openhexas-ai-assistant/" style="font-size: 14px; font-weight: 700; color: #4361ee; transition: color 140ms;" style-hover="color: #be185d">Read more →</a>
+        </article>
+
+        <article style="display: grid; gap: 14px; align-content: start;">
+          <a href="https://www.openhexa.com/openhexa-now-speaks-ai-introducing-our-mcp-server/" style="position: relative; display: block; border-radius: 16px; overflow: hidden; aspect-ratio: 340 / 200;">
+            <img src="assets/posts/mcp-server.png" alt="OpenHEXA now speaks AI: introducing our MCP server" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 420ms var(--ease-standard);" style-hover="transform: scale(1.04)">
+            <span style="position: absolute; left: 10px; top: 10px; border-radius: 8px; padding: 4px 8px; background: #4361ee; color: #ffffff; font-size: 13px; font-weight: 700;">Feature</span>
+          </a>
+          <p style="margin: 0; font-size: 12px; color: var(--gray-500);">March 24th, 2026</p>
+          <a href="https://www.openhexa.com/openhexa-now-speaks-ai-introducing-our-mcp-server/" style="font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--gray-900);" style-hover="color: #4361ee">OpenHEXA now speaks AI: introducing our MCP server</a>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--gray-600); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">AI is changing how people work with data. Not in the distant future. Right now. Large language models can summarize reports, write code, spot patterns in spreadsheets, and answer questions about complex datasets. But they have a fundamental limitation: they can only work with what they can see.</p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="https://www.openhexa.com/tag/artificial-intelligence/" style="border-radius: 4px; padding: 4px 8px; background: #ededed; color: var(--gray-800); font-size: 12px; font-weight: 600;" style-hover="color: var(--gray-900)">Artificial Intelligence</a>
+          </div>
+          <a href="https://www.openhexa.com/openhexa-now-speaks-ai-introducing-our-mcp-server/" style="font-size: 14px; font-weight: 700; color: #4361ee; transition: color 140ms;" style-hover="color: #be185d">Read more →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="background: #ffffff; padding: 96px 24px;">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2 style="margin: 0 0 40px; font-size: clamp(28px, 3vw, 38px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 800; color: var(--gray-900);">Questions</h2>
+      <div style="display: grid; gap: 0;">
+        <details style="border-top: 1px solid var(--gray-200); padding: 22px 0; transition: background 140ms;" style-hover="background: var(--gray-50)">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 18px; font-weight: 600; color: var(--gray-900);">What does the trial include?<span style="color: #be185d; font-size: 22px; line-height: 1;">+</span></summary>
+          <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.65; color: var(--gray-600);">Every feature, including the pipeline assistant, the MCP server and the web app builder. There is no AI add-on and no sales call to get started.</p>
+        </details>
+        <details style="border-top: 1px solid var(--gray-200); padding: 22px 0; transition: background 140ms;" style-hover="background: var(--gray-50)">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 18px; font-weight: 600; color: var(--gray-900);">Can I self-host instead?<span style="color: #be185d; font-size: 22px; line-height: 1;">+</span></summary>
+          <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.65; color: var(--gray-600);">Yes. The platform is AGPL-3.0 and runs with docker compose for a local install, or with the Kubernetes charts for a production deployment. Nothing is held back from the self-hosted version.</p>
+        </details>
+        <details style="border-top: 1px solid var(--gray-200); padding: 22px 0; transition: background 140ms;" style-hover="background: var(--gray-50)">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 18px; font-weight: 600; color: var(--gray-900);">Do I need to write Python?<span style="color: #be185d; font-size: 22px; line-height: 1;">+</span></summary>
+          <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.65; color: var(--gray-600);">Not to start. Template pipelines cover common tasks such as reading a DHIS2 instance and publishing a dataset. Python and R are there when you need to write the logic yourself.</p>
+        </details>
+        <details style="border-top: 1px solid var(--gray-200); padding: 22px 0; transition: background 140ms;" style-hover="background: var(--gray-50)">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 18px; font-weight: 600; color: var(--gray-900);">Where does my data live?<span style="color: #be185d; font-size: 22px; line-height: 1;">+</span></summary>
+          <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.65; color: var(--gray-600);">On the hosted version, in the workspace database and object storage attached to your organization. Self-hosted, in your own infrastructure. Either way, sharing outside the workspace is explicit.</p>
+        </details>
+        <details style="border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); padding: 22px 0;">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 18px; font-weight: 600; color: var(--gray-900);">How does the MCP server handle permissions?<span style="color: #be185d; font-size: 22px; line-height: 1;">+</span></summary>
+          <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.65; color: var(--gray-600);">An agent connects with a member's token and sees exactly what that member can read, nothing more. Access is read-only by default.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="signup" style="background: #ffffff; border-top: 1px solid var(--gray-200); padding: 96px 24px;">
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+      <div style="max-width: 660px;">
+        <h2 style="margin: 0 0 14px; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 800; color: var(--gray-900);">Create a workspace and run <span style="text-decoration: underline; text-decoration-color: rgba(255,69,154,0.5); text-decoration-thickness: 0.18em; text-underline-offset: 0.06em; text-decoration-skip-ink: none;">your first pipeline today</span></h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--gray-600);">The trial includes <span style="text-decoration: underline; text-decoration-color: rgba(255,69,154,0.45); text-decoration-thickness: 0.13em; text-underline-offset: 0.1em; text-decoration-skip-ink: none;">every feature</span>. If you would rather see it driven first, book a walkthrough.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <a href="#signup-form" style="display: inline-flex; align-items: center; height: 52px; padding: 0 30px; background: #ff459a; color: #192041; font-size: 16px; font-weight: 700; border-radius: 9999px;" style-hover="background: #ff62aa; color: #192041">Start free</a>
+        <a href="#demo" style="display: inline-flex; align-items: center; height: 52px; padding: 0 26px; border: 1px solid var(--gray-400); color: var(--gray-800); font-size: 16px; font-weight: 600; border-radius: 9999px;" style-hover="background: var(--gray-50); color: var(--gray-900)">Book a walkthrough</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #192041; padding: 72px 24px 40px; color: #9ca3af;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px;">
+        <div>
+          <img src="assets/logo-openhexa-white.svg" alt="OpenHEXA" style="height: 27px; width: auto; margin-bottom: 20px;">
+          <p style="margin: 0 0 22px; font-size: 14px; line-height: 1.6; color: #7990ff; max-width: 280px;">An open-source data platform, made by Bluesquare.</p>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <a href="https://github.com/BLSQ/openhexa/" style="opacity: 0.65;" style-hover="opacity: 1"><img src="assets/social/github.svg" alt="GitHub" style="width: 22px; height: 22px;"></a>
+            <a href="https://www.linkedin.com/company/bluesquarehub/" style="opacity: 0.65;" style-hover="opacity: 1"><img src="assets/social/linkedin.svg" alt="LinkedIn" style="width: 22px; height: 22px;"></a>
+            <a href="https://www.youtube.com/@bluesquare8434" style="opacity: 0.65;" style-hover="opacity: 1"><img src="assets/social/youtube.svg" alt="YouTube" style="width: 22px; height: 22px;"></a>
+            <a href="https://bsky.app/profile/bluesquarehub.bsky.social" style="opacity: 0.65;" style-hover="opacity: 1"><img src="assets/social/bluesky.svg" alt="Bluesky" style="width: 22px; height: 22px;"></a>
+          </div>
+        </div>
+        <div>
+          <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7990ff; font-weight: 700;">Product</p>
+          <div style="display: grid; gap: 11px;">
+            <a href="#product" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Overview</a>
+            <a href="#ai" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">AI</a>
+            <a href="#responsible-ai" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Responsible AI</a>
+            <a href="#integrations" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Integrations</a>
+            <a href="#pricing" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Pricing</a>
+          </div>
+        </div>
+        <div>
+          <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7990ff; font-weight: 700;">Solutions</p>
+          <div style="display: grid; gap: 11px;">
+            <a href="https://www.openhexa.com/integrations/what-you-can-do-withopenhexa-dhis2/" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">OpenHEXA and DHIS2</a>
+            <a href="https://www.openhexa.com/blog/" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Blog</a>
+            <a href="https://www.openhexa.com/contact/" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7990ff; font-weight: 700;">Open source</p>
+          <div style="display: grid; gap: 11px;">
+            <a href="https://github.com/BLSQ/openhexa/" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">GitHub</a>
+            <a href="https://github.com/BLSQ/openhexa/" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Self-host</a>
+            <a href="#docs" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Documentation</a>
+            <a href="#community" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Community</a>
+            <a href="#resources" style="font-size: 14px; color: #ccd5ff;" style-hover="color: #74ffcf">Blog</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 56px; padding-top: 24px; border-top: 1px solid #353e66; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 13px; color: #7990ff;">
+        <p style="margin: 0;">© 2026 Bluesquare</p>
+        <div style="display: flex; gap: 24px;">
+          <a href="#legal" style="color: #7990ff; font-size: 13px;" style-hover="color: #ccd5ff">Legal information</a>
+          <a href="https://www.openhexa.com/fr/" style="color: #7990ff; font-size: 13px;" style-hover="color: #ccd5ff">Français</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <details style="position: fixed; right: 20px; bottom: 20px; z-index: 90; background: rgba(14,19,48,0.97); border: 1px solid #353e66; border-radius: 10px; box-shadow: var(--shadow-xl);">
+    <summary style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; color: #74ffcf;" title="Review options"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"></path><circle cx="9" cy="6" r="2.2" fill="#ff459a" stroke="none"></circle><circle cx="15" cy="12" r="2.2" fill="#ff459a" stroke="none"></circle><circle cx="8" cy="18" r="2.2" fill="#ff459a" stroke="none"></circle></svg></summary>
+    <div style="padding: 0 14px 14px; display: flex; align-items: center; gap: 10px; border-top: 1px solid #353e66; padding-top: 12px; margin-top: 2px;">
+      <span style="font-size: 12px; color: #ccd5ff; white-space: nowrap;">Headline</span>
+      <div style="display: flex; gap: 6px;">
+        <button type="button" onClick="{{ pickA }}" style="width: 30px; height: 28px; border-radius: 6px; border: 1px solid #353e66; background: {{ hA }}; color: #ffffff; font-family: var(--font-sans); font-size: 12px; font-weight: 700; cursor: pointer;">A</button>
+        <button type="button" onClick="{{ pickB }}" style="width: 30px; height: 28px; border-radius: 6px; border: 1px solid #353e66; background: {{ hB }}; color: #ffffff; font-family: var(--font-sans); font-size: 12px; font-weight: 700; cursor: pointer;">B</button>
+        <button type="button" onClick="{{ pickC }}" style="width: 30px; height: 28px; border-radius: 6px; border: 1px solid #353e66; background: {{ hC }}; color: #ffffff; font-family: var(--font-sans); font-size: 12px; font-weight: 700; cursor: pointer;">C</button>
+      </div>
+    </div>
+  </details>
+
+
+</div></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroHeadline&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;'A'|'B'|'C'&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;starCount&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;412&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;flowSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.4,&quot;max&quot;:2.5,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FF459A&quot;,&quot;options&quot;:[&quot;#FF459A&quot;,&quot;#7990FF&quot;,&quot;#74FFCF&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Color&quot;}}">
+const HEADLINES = {
+  A: {
+    pre: "Turn your data into ",
+    mark: "insights and products",
+    post: " your teams use.",
+    subhead: "OpenHEXA brings your data together, makes it shareable simplifies visualization and modeling - all in one platform designed for building impactful data products. "
+  },
+  B: {
+    pre: "From raw sources to a ",
+    mark: "working data product",
+    post: ", in one open-source workspace.",
+    subhead: "Connections, pipelines, datasets, notebooks and web apps in one place, with versioning and access control handled. Self-host it or start on OpenHEXA Cloud."
+  },
+  C: {
+    pre: "Everything between your data sources and ",
+    mark: "the dashboard people open every morning",
+    post: ".",
+    subhead: "One governed workspace where analysts write the transformation, the platform runs it on a schedule, and program teams get a URL instead of another spreadsheet."
+  }
+};
+
+const NAV_LABELS = ["Connections", "Datasets", "Notebooks", "Apps"];
+
+class Component extends DCLogic {
+  state = {
+    h: null, tab: 0, copied: false, solutionsOpen: false,
+    dgI: 0, dgCx: 514, dgCy: 151, dgRipple: 0,
+    dgHover: false, dgVisible: false, dgW: 1280
+  };
+
+  // ---- hero diagram ----------------------------------------------------
+  componentDidMount() {
+    this.dgMeasure();
+    this.dgWatch();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.t1);
+    clearTimeout(this.t2);
+    clearTimeout(this.rt);
+    clearTimeout(this._t);
+    cancelAnimationFrame(this.raf);
+    cancelAnimationFrame(this.raf2);
+    window.removeEventListener('resize', this.dgResize);
+    if (this.ro) this.ro.disconnect();
+    if (this.io) this.io.disconnect();
+  }
+
+  // Scale off the container's own width rather than window.innerWidth: the two
+  // disagree whenever something else eats horizontal space (side panels,
+  // scrollbars, embedded frames), and the container is what the fixed
+  // 1280x690 canvas actually has to fit inside.
+  dgRead = () => {
+    const el = document.getElementById('hero-diagram');
+    if (!el) return;
+    const w = el.clientWidth;
+    if (w > 0 && w !== this.state.dgW) this.setState({ dgW: w });
+  };
+
+  dgResize = () => {
+    clearTimeout(this.rt);
+    this.rt = setTimeout(this.dgRead, 80);
+  };
+
+  dgMeasure() {
+    const el = document.getElementById('hero-diagram');
+    if (!el) { this.raf2 = requestAnimationFrame(() => this.dgMeasure()); return; }
+    if (typeof ResizeObserver !== 'undefined') {
+      this.ro = new ResizeObserver(this.dgRead);
+      this.ro.observe(el);
+    } else {
+      this.dgRead();
+      window.addEventListener('resize', this.dgResize);
+    }
+  }
+
+  // Autoplay only once the diagram is actually on screen, so it does not
+  // compete with the hero headline and does not burn cycles out of view.
+  dgWatch() {
+    const el = document.getElementById('hero-diagram');
+    if (!el) { this.raf = requestAnimationFrame(() => this.dgWatch()); return; }
+    if (typeof IntersectionObserver === 'undefined') {
+      this.setState({ dgVisible: true });
+      this.dgSchedule(1200);
+      return;
+    }
+    this.io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !this.state.dgVisible) {
+          this.setState({ dgVisible: true });
+          this.dgSchedule(900);
+        } else if (!e.isIntersecting && this.state.dgVisible) {
+          this.setState({ dgVisible: false });
+          clearTimeout(this.t1);
+          clearTimeout(this.t2);
+        }
+      });
+    }, { threshold: 0.25 });
+    this.io.observe(el);
+  }
+
+  dgTargets() { return [514, 794, 1074]; }
+
+  dgSchedule(delay) {
+    clearTimeout(this.t1);
+    this.t1 = setTimeout(() => {
+      if (!this.state.dgVisible) return;
+      if (this.state.dgHover) return this.dgSchedule(1500);
+      const next = (this.state.dgI + 1) % 3;
+      this.setState({ dgCx: this.dgTargets()[next], dgCy: 151 });
+      clearTimeout(this.t2);
+      this.t2 = setTimeout(() => {
+        this.setState(s => ({ dgI: next, dgRipple: s.dgRipple + 1 }));
+        this.dgSchedule(4200);
+      }, 760);
+    }, delay);
+  }
+
+  dgGo(i) {
+    clearTimeout(this.t1);
+    clearTimeout(this.t2);
+    this.setState(s => ({ dgI: i, dgCx: this.dgTargets()[i], dgCy: 151, dgRipple: s.dgRipple + 1 }));
+    this.dgSchedule(6000);
+  }
+
+  dgRenderVals() {
+    const w = Math.max(320, Math.min(1280, this.state.dgW));
+    const s = w / 1280;
+    const narrow = this.state.dgW < 852;
+    const i = this.state.dgI;
+    const acc = this.props.accent ?? '#FF459A';
+    const sp = this.props.flowSpeed ?? 1;
+    const vars = {
+      '--oh-dur': (3.4 / sp).toFixed(2) + 's',
+      '--oh-acc': acc,
+      '--dg-i': String(i),
+      '--dg-cx': this.state.dgCx + 'px',
+      '--dg-cy': this.state.dgCy + 'px',
+      '--dg-cursor-op': this.state.dgHover ? '0' : '1',
+      '--dg-ripple-anim': this.state.dgRipple % 2 ? 'dgRipple' : 'dgRipple2'
+    };
+    [0, 1, 2].forEach(n => {
+      const on = n === i;
+      vars['--t' + n + '-bg'] = on ? 'rgba(255,69,154,.14)' : 'rgba(255,255,255,.05)';
+      vars['--t' + n + '-bd'] = on ? acc : 'rgba(255,255,255,.1)';
+      vars['--t' + n + '-fg'] = on ? '#fff' : 'rgba(255,255,255,.62)';
+      vars['--t' + n + '-hex'] = on ? acc : '#7990FF';
+      vars['--p' + n + '-anim'] = on ? 'dgRise' : 'none';
+    });
+    return {
+      dgVars: vars,
+      dgS: s.toFixed(4),
+      dgH: Math.round(690 * s) + 'px',
+      dgShow: narrow ? 'none' : 'block',
+      dgGlowLeft: Math.round(300 * s) + 'px',
+      dgGlowTop: Math.round(345 * s) + 'px',
+      dgGlowSize: Math.round(820 * s) + 'px',
+      dgMobShow: narrow ? 'grid' : 'none',
+      dgPick0: () => this.dgGo(0),
+      dgPick1: () => this.dgGo(1),
+      dgPick2: () => this.dgGo(2),
+      dgEnter: () => { clearTimeout(this.t1); clearTimeout(this.t2); this.setState({ dgHover: true }); },
+      dgLeave: () => { this.setState({ dgHover: false }); this.dgSchedule(2000); }
+    };
+  }
+
+  copy = () => {
+    const text = 'claude mcp add openhexa --transport http https://app.openhexa.org/mcp/';
+    if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
+    this.setState({ copied: true });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ copied: false }), 1600);
+  };
+
+  pickTab = (n) => () => this.setState({ tab: n });
+
+  renderVals() {
+    const key = this.state.h ?? this.props.heroHeadline ?? 'A';
+    const h = HEADLINES[key] || HEADLINES.A;
+    const t = this.state.tab;
+    const on = '#222948', off = 'transparent';
+    const vals = {
+      hPre: h.pre,
+      hMark: h.mark,
+      hPost: h.post,
+      subhead: h.subhead,
+      starCount: this.props.starCount ?? '412',
+      navLabel: NAV_LABELS[t],
+      solutionsOpen: this.state.solutionsOpen,
+      solColor: this.state.solutionsOpen ? '#74ffcf' : '#e5e7eb',
+      solArrow: this.state.solutionsOpen ? 'rotate(180deg)' : 'none',
+      openSolutions: () => this.setState({ solutionsOpen: true }),
+      closeSolutions: () => this.setState({ solutionsOpen: false }),
+      toggleSolutions: () => this.setState(s => ({ solutionsOpen: !s.solutionsOpen })),
+      copyPrompt: this.copy,
+      copyLabel: this.state.copied ? 'Copied' : 'Copy',
+      pickA: () => this.setState({ h: 'A' }),
+      pickB: () => this.setState({ h: 'B' }),
+      pickC: () => this.setState({ h: 'C' }),
+      hA: key === 'A' ? on : off,
+      hB: key === 'B' ? on : off,
+      hC: key === 'C' ? on : off
+    };
+    for (let i = 0; i < 4; i++) {
+      const active = t === i;
+      vals['tab' + i] = this.pickTab(i);
+      vals['isTab' + i] = active;
+      vals['t' + i + 'bg'] = active ? '#192041' : '#ffffff';
+      vals['t' + i + 'c'] = active ? '#ffffff' : 'var(--gray-700)';
+      vals['n' + i + 'bg'] = active ? 'var(--gray-100)' : 'transparent';
+      vals['n' + i + 'c'] = active ? 'var(--gray-900)' : 'var(--gray-600)';
+      vals['n' + i + 'bl'] = active ? '#ff459a' : 'transparent';
+      vals['n' + i + 'w'] = active ? '600' : '400';
+    }
+    Object.assign(vals, this.dgRenderVals());
+    return vals;
+  }
+}
+</script>
+</body>
+</html>
